@@ -28,13 +28,15 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a passionate and dedicated fresher with a strong foundation in software development. 
-              My journey in technology began with curiosity and has evolved into a deep commitment to 
-              creating innovative solutions that make a difference.
+              I'm genuinely excited to start my career! I'm looking for a place where I can jump in, 
+              learn quickly, and grow alongside a supportive team. I bring a practical, problem-solving 
+              approach honed through my studies and a knack for breaking down big challenges into manageable 
+              steps.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed">
-              With hands-on experience in modern web technologies and a keen interest in emerging trends, 
-              I'm excited to contribute to meaningful projects and grow as a software engineer.
+              I thrive in getting hands-on experience and helping teams succeed. What really energizes 
+              me is figuring out how technology can simplify complex tasks and bring people together to 
+              collaborate better—especially when it makes a real difference for others.
             </p>
           </motion.div>
 
@@ -51,11 +53,11 @@ const About = () => {
                 <h3 className="text-xl font-semibold">Education</h3>
               </div>
               <div className="space-y-2">
-                <p className="text-gray-300">Bachelor of Technology</p>
-                <p className="text-gray-400">Computer Science & Engineering</p>
+                <p className="text-gray-300">B.Tech – CSE (Core)</p>
+                <p className="text-gray-400">Woxsen University, Hyderabad</p>
                 <div className="flex items-center space-x-2 text-sm text-gray-400">
                   <Calendar size={16} />
-                  <span>2020 - 2024</span>
+                  <span>2022 – 2026 (69%)</span>
                 </div>
               </div>
             </div>
@@ -65,7 +67,32 @@ const About = () => {
                 <MapPin className="text-purple-400" size={24} />
                 <h3 className="text-xl font-semibold">Location</h3>
               </div>
-              <p className="text-gray-300">India</p>
+              <p className="text-gray-300">Nizamabad, Telangana, India</p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <h3 className="text-white font-semibold mb-3 flex items-center">
+                <span className="text-yellow-400 mr-2">🏆</span>
+                Achievement
+              </h3>
+              <p className="text-gray-300">
+                <strong>DIGITECH Hackathon Winner</strong> – March 2025<br />
+                Ranked #1 among 50+ teams using Resume Ranker AI tool
+              </p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <h3 className="text-white font-semibold mb-3 flex items-center">
+                <span className="text-green-400 mr-2">🎯</span>
+                Interests
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {["Competitive Coding", "Open Source", "AI in Games", "Full-Stack Projects"].map((interest) => (
+                  <span key={interest} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">
+                    {interest}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

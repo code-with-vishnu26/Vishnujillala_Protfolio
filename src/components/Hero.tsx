@@ -23,7 +23,7 @@ const Hero = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, type: "spring" }}
           >
-            Hi, I'm Vishnu
+            Vishnu Jillala
           </motion.h1>
           
           <motion.p
@@ -32,7 +32,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Aspiring Software Engineer
+            Aspiring Full Stack Developer
           </motion.p>
           
           <motion.p

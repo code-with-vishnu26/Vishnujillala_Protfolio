@@ -4,14 +4,18 @@ import SkillSphere from "./SkillSphere";
 
 const Skills = () => {
   const skills = [
+    { name: "Python", level: 90, color: "#3776ab" },
     { name: "JavaScript", level: 85, color: "#f7df1e" },
-    { name: "React", level: 80, color: "#61dafb" },
-    { name: "Java", level: 75, color: "#ed8b00" },
-    { name: "Python", level: 70, color: "#3776ab" },
-    { name: "HTML/CSS", level: 90, color: "#e34f26" },
-    { name: "Node.js", level: 65, color: "#339933" },
-    { name: "MongoDB", level: 60, color: "#47a248" },
-    { name: "Git", level: 75, color: "#f05032" },
+    { name: "Java", level: 80, color: "#ed8b00" },
+    { name: "React.js", level: 85, color: "#61dafb" },
+    { name: "Node.js", level: 80, color: "#339933" },
+    { name: "Express.js", level: 75, color: "#000000" },
+    { name: "MongoDB", level: 75, color: "#47a248" },
+    { name: "MySQL", level: 70, color: "#4479a1" },
+    { name: "Docker", level: 70, color: "#2496ed" },
+    { name: "Machine Learning", level: 75, color: "#ff6f00" },
+    { name: "TensorFlow", level: 65, color: "#ff6f00" },
+    { name: "Blockchain", level: 70, color: "#f7931a" },
   ];
 
   return (

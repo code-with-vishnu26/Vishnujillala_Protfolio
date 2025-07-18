@@ -24,9 +24,8 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { name: "GitHub", icon: Github, url: "https://github.com", color: "hover:text-gray-300" },
-    { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com", color: "hover:text-blue-400" },
-    { name: "Twitter", icon: Twitter, url: "https://twitter.com", color: "hover:text-blue-300" },
+    { name: "GitHub", icon: Github, url: "https://github.com/code-with-vishnu26", color: "hover:text-gray-300" },
+    { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/in/vishnu-jillala-36479725a", color: "hover:text-blue-400" },
   ];
 
   return (
@@ -68,7 +67,7 @@ const Contact = () => {
                 className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors duration-200"
               >
                 <Mail size={20} className="text-blue-400" />
-                <span>vishnu@example.com</span>
+                <span>jillalavishnu02@gmail.com</span>
               </motion.div>
               
               <motion.div
@@ -76,7 +75,7 @@ const Contact = () => {
                 className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors duration-200"
               >
                 <Phone size={20} className="text-green-400" />
-                <span>+91 9876543210</span>
+                <span>+91 6304365128</span>
               </motion.div>
               
               <motion.div
@@ -84,7 +83,7 @@ const Contact = () => {
                 className="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors duration-200"
               >
                 <MapPin size={20} className="text-red-400" />
-                <span>India</span>
+                <span>Nizamabad, Telangana, India</span>
               </motion.div>
             </div>
 

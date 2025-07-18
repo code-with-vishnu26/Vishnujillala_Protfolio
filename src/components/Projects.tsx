@@ -6,26 +6,42 @@ import ProjectCard from "./ProjectCard";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment integration.",
+      title: "AI in Cyber Security Threat Detection",
+      description: "Used ML-based phishing detection API to analyze URLs and emails. Reduced false positives by 40% and scanned 1,000+ URLs with 95% detection accuracy.",
       image: "/placeholder.svg",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
-      githubUrl: "#",
+      technologies: ["Machine Learning", "Python", "REST APIs", "Scikit-learn"],
+      githubUrl: "https://github.com/code-with-vishnu26/Applicative-project--SEM-6-.git",
       liveUrl: "#",
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      title: "Secure Password Management Using Blockchain",
+      description: "Centralized password store with smart contracts. Reduced breach risk by 99% with end-to-end encrypted and immutable data records.",
       image: "/placeholder.svg",
-      technologies: ["React", "Firebase", "Material-UI", "JavaScript"],
-      githubUrl: "#",
+      technologies: ["Blockchain", "Smart Contracts", "Solidity", "Web3"],
+      githubUrl: "https://github.com/code-with-vishnu26/-Applicative-Project-SEM-5-.git",
       liveUrl: "#",
     },
     {
-      title: "Weather Dashboard",
-      description: "A responsive weather application that provides current weather conditions and forecasts using REST APIs with beautiful data visualizations.",
+      title: "Full-Stack Web App Template",
+      description: "Docker-based, SSR, CI/CD enabled template with JWT authentication, REST APIs, and Socket.IO for real-time features.",
       image: "/placeholder.svg",
-      technologies: ["JavaScript", "API Integration", "Chart.js", "CSS3"],
+      technologies: ["Next.js", "Express", "NestJS", "Docker", "Socket.IO"],
+      githubUrl: "https://github.com/code-with-vishnu26/fullstack-nextjs-app-template-main.git",
+      liveUrl: "#",
+    },
+    {
+      title: "Web Vulnerability Scanner",
+      description: "Automated 80+ security tests, found 500+ vulnerabilities, and reduced scan time by 60% using advanced scanning tools.",
+      image: "/placeholder.svg",
+      technologies: ["Nmap", "Nikto", "TheHarvester", "Python", "Security"],
+      githubUrl: "https://github.com/code-with-vishnu26/Web-Vulnerability-Scanner.git",
+      liveUrl: "#",
+    },
+    {
+      title: "Mini CRM AI Workflow",
+      description: "OCR integration and lead automation system with intelligent workflow management and data processing capabilities.",
+      image: "/placeholder.svg",
+      technologies: ["React.js", "Python", "React Flow", "OCR", "AI"],
       githubUrl: "#",
       liveUrl: "#",
     },
@@ -47,7 +63,7 @@ const Projects = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
