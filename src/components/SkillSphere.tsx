@@ -1,24 +1,26 @@
 
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Text, Sphere } from "@react-three/drei";
-import { Group } from "three";
+import { Text } from "@react-three/drei";
+import { Group, Mesh } from "three";
 
 const FloatingSphere = ({ position, text, color }: { position: [number, number, number], text: string, color: string }) => {
-  const meshRef = useRef<Group>(null);
+  const groupRef = useRef<Group>(null);
+  const meshRef = useRef<Mesh>(null);
 
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.5;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.2;
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.5;
+      groupRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + position[0]) * 0.2;
     }
   });
 
   return (
-    <group ref={meshRef} position={position}>
-      <Sphere args={[0.3, 32, 32]}>
+    <group ref={groupRef} position={position}>
+      <mesh ref={meshRef}>
+        <sphereGeometry args={[0.3, 32, 32]} />
         <meshStandardMaterial color={color} wireframe />
-      </Sphere>
+      </mesh>
       <Text
         position={[0, -0.5, 0]}
         fontSize={0.15}
