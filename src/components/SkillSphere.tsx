@@ -2,10 +2,10 @@
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Text, Sphere } from "@react-three/drei";
-import { Mesh } from "three";
+import { Group } from "three";
 
 const FloatingSphere = ({ position, text, color }: { position: [number, number, number], text: string, color: string }) => {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Group>(null);
 
   useFrame((state) => {
     if (meshRef.current) {
