@@ -36,23 +36,29 @@ const Resume = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
+              <motion.a
+                href="https://drive.google.com/uc?export=download&id=1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
               >
                 <Download size={20} />
                 <span>Download PDF</span>
-              </motion.button>
+              </motion.a>
               
-              <motion.button
+              <motion.a
+                href="https://drive.google.com/file/d/1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf/view"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center justify-center space-x-2 px-6 py-3 border border-gray-400 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
               >
                 <Eye size={20} />
                 <span>Preview Online</span>
-              </motion.button>
+              </motion.a>
             </div>
 
             <div className="mt-8 text-sm text-gray-400">

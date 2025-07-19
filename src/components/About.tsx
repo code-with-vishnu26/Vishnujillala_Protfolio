@@ -87,7 +87,7 @@ const About = () => {
                 Interests
               </h3>
               <div className="flex flex-wrap gap-2">
-                {["Competitive Coding", "Open Source", "AI in Games", "Full-Stack Projects"].map((interest) => (
+                {["Competitive Coding", "Open Source", "Exploring AI"].map((interest) => (
                   <span key={interest} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">
                     {interest}
                   </span>
