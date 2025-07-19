@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
 import TechnicalSkills from "@/components/TechnicalSkills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
@@ -20,7 +19,6 @@ const Index = () => {
       <main className="relative z-10">
         <Hero />
         <About />
-        <Skills />
         <TechnicalSkills />
         <Projects />
         <ProfessionalJourney />
