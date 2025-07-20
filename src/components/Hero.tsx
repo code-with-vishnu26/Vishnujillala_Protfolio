@@ -1,25 +1,10 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useState, useEffect } from "react";
 import FloatingCube from "./FloatingCube";
+import RotatingText3D from "./RotatingText3D";
 
 const Hero = () => {
-  const roles = ["Problem Solver", "AI/ML Enthusiast", "Developer", "Aspiring Full Stack Developer"];
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleRoleClick = () => {
-    setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -43,15 +28,11 @@ const Hero = () => {
           </motion.h1>
           
           <motion.div
-            className="text-xl md:text-2xl max-w-2xl mx-auto cursor-pointer"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            onClick={handleRoleClick}
           >
-            <span className="text-gray-400">&lt; </span>
-            <span className="text-cyan-400 font-semibold">{roles[currentRoleIndex]}</span>
-            <span className="text-gray-400"> /&gt;</span>
+            <RotatingText3D />
           </motion.div>
           
           <motion.p
