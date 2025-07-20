@@ -10,7 +10,7 @@ const RotatingText3D = () => {
     const interval = setInterval(() => {
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
       setKey(prev => prev + 1);
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -25,18 +25,18 @@ const RotatingText3D = () => {
 
   return (
     <div 
-      className="text-xl md:text-2xl max-w-2xl mx-auto cursor-pointer"
+      className="text-xl md:text-2xl max-w-full mx-auto cursor-pointer text-center"
       onClick={handleRoleClick}
       style={{ perspective: "1000px" }}
     >
-      <div className="relative inline-block">
+      <div className="relative inline-block whitespace-nowrap">
         <span className="text-gray-400">&lt; </span>
         
         <div className="inline-block">
           <AnimatePresence mode="wait">
             <motion.div
               key={key}
-              className="inline-block"
+              className="inline-block whitespace-nowrap"
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -47,7 +47,8 @@ const RotatingText3D = () => {
                   className="text-cyan-400 font-semibold inline-block"
                   style={{
                     transformStyle: "preserve-3d",
-                    transformOrigin: "center center"
+                    transformOrigin: "center center",
+                    backfaceVisibility: "hidden"
                   }}
                   variants={{
                     hidden: { 
@@ -58,8 +59,8 @@ const RotatingText3D = () => {
                       rotateY: 0,
                       opacity: 1,
                       transition: {
-                        duration: 0.6,
-                        delay: index * 0.08,
+                        duration: 0.5,
+                        delay: index * 0.06,
                         ease: "easeOut"
                       }
                     },
@@ -67,8 +68,8 @@ const RotatingText3D = () => {
                       rotateY: -90,
                       opacity: 0,
                       transition: {
-                        duration: 0.5,
-                        delay: index * 0.05,
+                        duration: 0.4,
+                        delay: index * 0.04,
                         ease: "easeIn"
                       }
                     }
