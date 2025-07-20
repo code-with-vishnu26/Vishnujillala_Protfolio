@@ -50,12 +50,17 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+            <a href="#professional-journey" className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
               View My Work
-            </button>
-            <button className="px-8 py-3 border border-gray-400 rounded-full font-semibold hover:bg-white/10 transition-all duration-300">
+            </a>
+            <a 
+              href="https://drive.google.com/uc?export=download&id=1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 border border-gray-400 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+            >
               Download Resume
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>
