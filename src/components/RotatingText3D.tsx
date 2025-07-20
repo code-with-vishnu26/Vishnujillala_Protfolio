@@ -10,7 +10,7 @@ const RotatingText3D = () => {
     const interval = setInterval(() => {
       setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
       setKey(prev => prev + 1);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -58,8 +58,8 @@ const RotatingText3D = () => {
                       rotateY: 0,
                       opacity: 1,
                       transition: {
-                        duration: 0.4,
-                        delay: index * 0.05,
+                        duration: 0.6,
+                        delay: index * 0.08,
                         ease: "easeOut"
                       }
                     },
@@ -67,8 +67,8 @@ const RotatingText3D = () => {
                       rotateY: -90,
                       opacity: 0,
                       transition: {
-                        duration: 0.3,
-                        delay: index * 0.03,
+                        duration: 0.5,
+                        delay: index * 0.05,
                         ease: "easeIn"
                       }
                     }
