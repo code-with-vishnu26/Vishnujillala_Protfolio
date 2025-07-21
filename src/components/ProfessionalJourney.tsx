@@ -71,7 +71,7 @@ const ProfessionalJourney = () => {
   const selectedData = journeyData.find(item => item.id === selectedJourney);
 
   return (
-    <section className="py-20 relative z-10">
+    <section id="professional-journey" className="py-20 relative z-10">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
