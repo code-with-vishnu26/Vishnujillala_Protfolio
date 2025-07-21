@@ -25,7 +25,7 @@ const RotatingText3D = () => {
 
   return (
     <div 
-      className="text-xl md:text-2xl max-w-full mx-auto cursor-pointer text-center"
+      className="text-xl md:text-2xl max-w-full mx-auto cursor-pointer text-left"
       onClick={handleRoleClick}
       style={{ perspective: "1000px" }}
     >
