@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: "Home", href: "#home", icon: Home },
     { name: "About", href: "#about", icon: User },
     { name: "Projects", href: "#projects", icon: Briefcase },
+    { name: "Experience", href: "#professional-journey", icon: Code },
     { name: "Certifications", href: "#certifications", icon: Award },
     { name: "Resume", href: "#resume", icon: FileText },
     { name: "Contact", href: "#contact", icon: Mail },
@@ -41,7 +42,7 @@ const Navbar = () => {
             transition={{ delay: 0.2 }}
             className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
           >
-            Vishnu
+            Portfolio
           </motion.a>
 
           {/* Desktop Navigation */}

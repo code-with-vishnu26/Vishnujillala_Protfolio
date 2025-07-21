@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const RotatingText3D = () => {
-  const roles = ["Problem Solver", "AI/ML Enthusiast", "Developer", "Aspiring Full Stack Developer"];
+  const roles = ["Problem Solver", "AI/ML Enthusiast", "Developer", "Full Stack Developer"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [key, setKey] = useState(0);
 
@@ -30,8 +30,6 @@ const RotatingText3D = () => {
       style={{ perspective: "1000px" }}
     >
       <div className="relative inline-block whitespace-nowrap">
-        <span className="text-gray-400">&lt; </span>
-        
         <div className="inline-block">
           <AnimatePresence mode="wait">
             <motion.div
@@ -81,8 +79,6 @@ const RotatingText3D = () => {
             </motion.div>
           </AnimatePresence>
         </div>
-        
-        <span className="text-gray-400"> /&gt;</span>
       </div>
     </div>
   );
