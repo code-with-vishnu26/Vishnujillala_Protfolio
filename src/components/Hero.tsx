@@ -20,17 +20,17 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6 text-left"
           >
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold text-white"
+            <motion.h2
+              className="text-2xl md:text-3xl font-medium text-gray-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               Hello, It's Me
-            </motion.h1>
+            </motion.h2>
             
             <motion.h1
-              className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+              className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.8, type: "spring" }}
@@ -64,6 +64,12 @@ const Hero = () => {
             >
               <a href="#professional-journey" className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
                 View My Work
+              </a>
+              <a 
+                href="#contact"
+                className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full font-semibold hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105 text-white"
+              >
+                Contact Me
               </a>
               <a 
                 href="https://drive.google.com/uc?export=download&id=1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf"
