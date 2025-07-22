@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Text, Sphere, Line } from "@react-three/drei";
+import { OrbitControls, Text } from "@react-three/drei";
 import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, GraduationCap, Award, Code, X } from "lucide-react";
 import * as THREE from "three";
@@ -84,14 +84,6 @@ const journeyData: JourneyNode[] = [
   }
 ];
 
-// Create connections between nodes
-const connections = [
-  [journeyData[0].position, journeyData[1].position],
-  [journeyData[1].position, journeyData[2].position],
-  [journeyData[2].position, journeyData[3].position],
-  [journeyData[0].position, journeyData[2].position]
-];
-
 function JourneyNode({ node, onClick, isSelected }: { node: JourneyNode; onClick: () => void; isSelected: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
@@ -115,13 +107,13 @@ function JourneyNode({ node, onClick, isSelected }: { node: JourneyNode; onClick
 
   return (
     <group position={node.position}>
-      <Sphere
+      <mesh
         ref={meshRef}
-        args={[0.5, 32, 32]}
         onClick={onClick}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
+        <sphereGeometry args={[0.5, 32, 32]} />
         <meshStandardMaterial
           color={node.color}
           emissive={node.color}
@@ -129,24 +121,15 @@ function JourneyNode({ node, onClick, isSelected }: { node: JourneyNode; onClick
           transparent
           opacity={0.8}
         />
-      </Sphere>
+      </mesh>
       
-      {/* Glowing ring around selected node */}
-      {isSelected && (
-        <mesh rotation={[0, 0, 0]}>
-          <ringGeometry args={[0.7, 0.9, 32]} />
-          <meshBasicMaterial color={node.color} transparent opacity={0.5} />
-        </mesh>
-      )}
-      
-      {/* Label */}
+      {/* Simple text label */}
       <Text
         position={[0, -1, 0]}
         fontSize={0.2}
         color="white"
         anchorX="center"
         anchorY="middle"
-        font="/fonts/inter-medium.woff"
       >
         {node.role}
       </Text>
@@ -155,22 +138,25 @@ function JourneyNode({ node, onClick, isSelected }: { node: JourneyNode; onClick
 }
 
 function ConnectionLines() {
+  const points = [
+    new THREE.Vector3(-4, 2, 0),
+    new THREE.Vector3(0, 4, -2),
+    new THREE.Vector3(4, 1, 1),
+    new THREE.Vector3(2, -2, -1)
+  ];
+
   return (
-    <>
-      {connections.map((connection, index) => (
-        <Line
-          key={index}
-          points={connection}
-          color="#ffffff"
-          lineWidth={2}
-          transparent
-          opacity={0.3}
-          dashed
-          dashScale={50}
-          gapSize={0.1}
+    <line>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          array={new Float32Array(points.flatMap(p => [p.x, p.y, p.z]))}
+          count={points.length}
+          itemSize={3}
         />
-      ))}
-    </>
+      </bufferGeometry>
+      <lineBasicMaterial color="white" transparent opacity={0.3} />
+    </line>
   );
 }
 
