@@ -20,14 +20,14 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6 text-left"
           >
-            <motion.p
-              className="text-lg text-gray-400"
+            <motion.h1
+              className="text-4xl md:text-6xl font-bold text-white"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               Hello, It's Me
-            </motion.p>
+            </motion.h1>
             
             <motion.h1
               className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
@@ -84,8 +84,8 @@ const Hero = () => {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-full blur-3xl absolute inset-0"></div>
-              <div className="w-64 h-64 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full relative z-10 flex items-center justify-center text-6xl font-bold text-white">
+              <div className="w-96 h-80 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl blur-3xl absolute inset-0"></div>
+              <div className="w-80 h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl relative z-10 flex items-center justify-center text-8xl font-bold text-white shadow-2xl">
                 VJ
               </div>
             </div>
