@@ -165,25 +165,46 @@ const ProfessionalJourney = () => {
 
           {/* Journey Points with Enhanced Design */}
           <div className="relative h-96">
-            {/* Floating background elements */}
+            {/* Constellation-style background elements */}
             <div className="absolute inset-0 overflow-hidden">
+              {/* Twinkling stars */}
               <motion.div
-                className="absolute w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-xl"
-                style={{ left: '20%', top: '10%' }}
-                animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute w-1 h-1 bg-white rounded-full"
+                style={{ left: '15%', top: '12%' }}
+                animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute w-24 h-24 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-xl"
-                style={{ right: '15%', top: '20%' }}
-                animate={{ y: [0, 15, 0], scale: [1, 0.9, 1] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute w-1.5 h-1.5 bg-blue-400 rounded-full"
+                style={{ right: '20%', top: '25%' }}
+                animate={{ opacity: [0.4, 1, 0.4], scale: [0.6, 1, 0.6] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               />
               <motion.div
-                className="absolute w-28 h-28 bg-gradient-to-br from-pink-500/10 to-blue-500/10 rounded-full blur-xl"
-                style={{ left: '10%', bottom: '20%' }}
-                animate={{ y: [0, -10, 0], scale: [1, 1.2, 1] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute w-1 h-1 bg-purple-400 rounded-full"
+                style={{ left: '25%', bottom: '30%' }}
+                animate={{ opacity: [0.2, 0.8, 0.2], scale: [0.7, 1.1, 0.7] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              />
+              <motion.div
+                className="absolute w-0.5 h-0.5 bg-pink-300 rounded-full"
+                style={{ right: '35%', bottom: '15%' }}
+                animate={{ opacity: [0.3, 0.9, 0.3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              />
+              
+              {/* Subtle geometric elements */}
+              <motion.div
+                className="absolute w-16 h-16 border border-blue-500/20 rounded-full"
+                style={{ left: '70%', top: '35%' }}
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute w-8 h-8 border border-purple-500/30"
+                style={{ left: '5%', top: '45%', transform: 'rotate(45deg)' }}
+                animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
               />
             </div>
             {journeyData.map((item, index) => {
