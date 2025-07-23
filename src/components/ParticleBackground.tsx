@@ -24,7 +24,7 @@ const ParticleBackground = () => {
       twinkle: number;
     }> = [];
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 300; i++) {
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -37,7 +37,9 @@ const ParticleBackground = () => {
     }
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Set canvas background to pure black
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       stars.forEach((star) => {
         // Move stars
@@ -96,7 +98,7 @@ const ParticleBackground = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 z-0" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 z-0 bg-black" />;
 };
 
 export default ParticleBackground;

@@ -63,11 +63,11 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button - positioned at top-right */}
+          <div className="md:hidden ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white"
+              className="text-gray-400 hover:text-white p-2 rounded-md hover:bg-white/10 transition-colors duration-200"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
