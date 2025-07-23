@@ -34,13 +34,15 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 w-full">
+        <div className="flex items-center justify-between h-16 w-full"
+             style={{ paddingLeft: '2rem' }}>
           <motion.a
             href="#home"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200 ml-0"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
+            style={{ marginLeft: '0' }}
           >
             Portfolio
           </motion.a>

@@ -87,34 +87,105 @@ const ProfessionalJourney = () => {
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Curved Path */}
+          {/* Enhanced Curved Path with Background Elements */}
           <svg
             className="absolute inset-0 w-full h-full"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
+            {/* Background decorative elements */}
+            <motion.circle
+              cx="20" cy="15" r="1"
+              fill="url(#sparkleGradient)"
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: [0, 1, 0], scale: [0, 1, 0] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 0 }}
+            />
+            <motion.circle
+              cx="75" cy="25" r="0.8"
+              fill="url(#sparkleGradient)"
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: [0, 1, 0], scale: [0, 1, 0] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+            />
+            <motion.circle
+              cx="30" cy="70" r="1.2"
+              fill="url(#sparkleGradient)"
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: [0, 1, 0], scale: [0, 1, 0] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+            />
+            
+            {/* Main curved path with enhanced design */}
             <motion.path
-              d="M 10,20 Q 50,10 85,35 Q 90,50 15,65 Q 40,70 80,80"
-              stroke="url(#gradient)"
-              strokeWidth="0.3"
+              d="M 10,20 Q 30,5 50,25 Q 70,45 85,35 Q 95,30 90,50 Q 85,70 50,60 Q 20,50 15,65 Q 10,80 40,75 Q 60,70 80,80"
+              stroke="url(#enhancedGradient)"
+              strokeWidth="0.4"
               fill="none"
-              strokeDasharray="2,2"
+              strokeDasharray="3,1.5"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 3, ease: "easeInOut" }}
               viewport={{ once: true }}
             />
+            
+            {/* Glowing shadow path */}
+            <motion.path
+              d="M 10,20 Q 30,5 50,25 Q 70,45 85,35 Q 95,30 90,50 Q 85,70 50,60 Q 20,50 15,65 Q 10,80 40,75 Q 60,70 80,80"
+              stroke="url(#glowGradient)"
+              strokeWidth="1"
+              fill="none"
+              opacity="0.3"
+              filter="blur(0.5px)"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              transition={{ duration: 3, ease: "easeInOut", delay: 0.5 }}
+              viewport={{ once: true }}
+            />
+            
             <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <linearGradient id="enhancedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#3b82f6" />
+                <stop offset="25%" stopColor="#6366f1" />
                 <stop offset="50%" stopColor="#8b5cf6" />
+                <stop offset="75%" stopColor="#d946ef" />
                 <stop offset="100%" stopColor="#ec4899" />
               </linearGradient>
+              <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#60a5fa" />
+                <stop offset="50%" stopColor="#a78bfa" />
+                <stop offset="100%" stopColor="#f472b6" />
+              </linearGradient>
+              <radialGradient id="sparkleGradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="100%" stopColor="#a78bfa" />
+              </radialGradient>
             </defs>
           </svg>
 
-          {/* Journey Points */}
+          {/* Journey Points with Enhanced Design */}
           <div className="relative h-96">
+            {/* Floating background elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <motion.div
+                className="absolute w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-xl"
+                style={{ left: '20%', top: '10%' }}
+                animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute w-24 h-24 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-xl"
+                style={{ right: '15%', top: '20%' }}
+                animate={{ y: [0, 15, 0], scale: [1, 0.9, 1] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              />
+              <motion.div
+                className="absolute w-28 h-28 bg-gradient-to-br from-pink-500/10 to-blue-500/10 rounded-full blur-xl"
+                style={{ left: '10%', bottom: '20%' }}
+                animate={{ y: [0, -10, 0], scale: [1, 1.2, 1] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              />
+            </div>
             {journeyData.map((item, index) => {
               const Icon = item.icon;
               return (
