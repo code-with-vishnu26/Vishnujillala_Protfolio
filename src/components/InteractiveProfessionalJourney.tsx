@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useState, useRef, useMemo, useCallback } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Text, Sphere, Ring } from "@react-three/drei";
 import { Briefcase, Code, Award, GraduationCap, X, type LucideIcon } from "lucide-react";
 import * as THREE from "three";
@@ -233,11 +233,22 @@ const InteractiveProfessionalJourney = () => {
           <Canvas
             camera={{ position: [0, 0, 8], fov: 60 }}
             style={{ background: 'transparent' }}
+            gl={{ 
+              antialias: true,
+              alpha: true,
+              preserveDrawingBuffer: true,
+              powerPreference: "high-performance"
+            }}
+            onCreated={(state) => {
+              state.gl.setClearColor(0x000000, 0);
+            }}
           >
-            <Scene 
-              selectedJourney={selectedJourney} 
-              onSelectJourney={setSelectedJourney} 
-            />
+            <Suspense fallback={null}>
+              <Scene 
+                selectedJourney={selectedJourney} 
+                onSelectJourney={setSelectedJourney} 
+              />
+            </Suspense>
           </Canvas>
           
           {/* Instructions */}
