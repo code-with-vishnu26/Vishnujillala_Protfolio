@@ -46,7 +46,7 @@ const Navbar = () => {
             Portfolio
           </motion.a>
 
-          {/* Right aligned Neon Glow Button */}
+          {/* Right aligned Neon Glow Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-full border border-purple-400 text-purple-400 
@@ -58,31 +58,30 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Dropdown menu with glowing buttons */}
+      {/* Right Side Floating Neon Buttons */}
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="bg-black/90 backdrop-blur-md border-t border-white/10"
+          initial={{ opacity: 0, x: 200 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 200 }}
+          className="fixed top-20 right-5 flex flex-col space-y-4 z-40"
         >
-          <div className="px-4 pt-3 pb-4 space-y-3">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-center text-white font-medium 
-                           px-5 py-2 rounded-full 
-                           border-2 border-transparent 
-                           bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
-                           hover:shadow-[0_0_15px_#a855f7] 
-                           transition-all duration-300"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
+          {navItems.map((item) => (
+            <motion.a
+              key={item.name}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 text-white font-medium 
+                         rounded-full border-2 border-transparent 
+                         bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
+                         shadow-lg hover:shadow-[0_0_20px_#a855f7] 
+                         transition-all duration-300"
+            >
+              {item.name}
+            </motion.a>
+          ))}
         </motion.div>
       )}
     </motion.nav>
