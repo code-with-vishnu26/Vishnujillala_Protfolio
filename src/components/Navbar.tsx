@@ -30,42 +30,42 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all ${
-        scrolled ? "bg-white/90 shadow-lg backdrop-blur-md" : "bg-white/70"
+        scrolled ? "bg-background/90 shadow-lg backdrop-blur-md border-b border-border" : "bg-background/70"
       }`}
     >
-      <div className="flex justify-between items-center px-6 py-4">
+      <div className="flex justify-between items-center px-4 py-4">
         {/* Logo / Brand */}
-        <h1 className="text-2xl font-bold text-blue-600">My Portfolio</h1>
+        <h1 className="text-2xl font-bold text-primary">Portfolio</h1>
 
-        {/* Menu Button (always visible) */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-blue-600 font-semibold px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition"
-        >
-          Menu
-        </button>
-      </div>
-
-      {/* Menu Items show when Menu is clicked */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
-        transition={{ duration: 0.3 }}
-        className={`${
-          isOpen ? "flex" : "hidden"
-        } flex-row justify-center gap-6 py-4 bg-white/95 backdrop-blur-md shadow-md`}
-      >
-        {menuItems.map((item, index) => (
-          <button
-            key={index}
-            className="px-4 py-2 text-lg font-semibold text-gray-800 
-              hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-600 
-              rounded-xl shadow-sm hover:shadow-lg transition transform hover:scale-105"
+        {/* Menu Items show when Menu is clicked - now inline */}
+        <div className="flex items-center gap-4">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 20 }}
+            transition={{ duration: 0.3 }}
+            className={`${
+              isOpen ? "flex" : "hidden"
+            } flex-row gap-4`}
           >
-            {item}
+            {menuItems.map((item, index) => (
+              <button
+                key={index}
+                className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-accent rounded-md transition-colors"
+              >
+                {item}
+              </button>
+            ))}
+          </motion.div>
+
+          {/* Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="px-4 py-2 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors"
+          >
+            Menu
           </button>
-        ))}
-      </motion.div>
+        </div>
+      </div>
     </nav>
   );
 };
