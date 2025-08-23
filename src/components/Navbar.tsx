@@ -55,9 +55,7 @@ const Navbar = () => {
           opacity: 1
         }} transition={{
           delay: 0.2
-        }} style={{
-          marginLeft: '0'
-        }} className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200 mx-[43px] my-[19px] px-0 py-[8px]">
+        }} className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200">
             Portfolio
           </motion.a>
 
