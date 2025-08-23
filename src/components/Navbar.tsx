@@ -30,12 +30,17 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all ${
-        scrolled ? "bg-background/90 shadow-lg backdrop-blur-md border-b border-border" : "bg-background/70"
+        scrolled ? "bg-card/95 shadow-lg backdrop-blur-md border-b border-border" : "bg-card/80"
       }`}
     >
       <div className="flex justify-between items-center px-4 py-4">
         {/* Logo / Brand */}
-        <h1 className="text-2xl font-bold text-primary">Portfolio</h1>
+        <h1 
+          className="text-2xl font-bold text-primary ml-8 cursor-pointer hover:text-primary/80 transition-colors"
+          onClick={() => window.location.reload()}
+        >
+          Portfolio
+        </h1>
 
         {/* Menu Items show when Menu is clicked - now inline */}
         <div className="flex items-center gap-4">
@@ -45,12 +50,12 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className={`${
               isOpen ? "flex" : "hidden"
-            } flex-row gap-4`}
+            } flex-row gap-4 bg-muted/80 px-4 py-2 rounded-lg backdrop-blur-sm`}
           >
             {menuItems.map((item, index) => (
               <button
                 key={index}
-                className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-accent rounded-md transition-colors"
+                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent rounded-md transition-colors"
               >
                 {item}
               </button>
@@ -60,7 +65,7 @@ const Navbar = () => {
           {/* Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="px-4 py-2 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors"
+            className="px-4 py-2 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors shadow-sm"
           >
             Menu
           </button>
