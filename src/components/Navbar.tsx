@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { MoreHorizontal, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,83 +8,68 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#professional-journey" },
-    { name: "Certifications", href: "#certifications" },
-    { name: "Resume", href: "#resume" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all ${
+        scrolled ? "bg-white/80 shadow-lg backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between h-16 w-full px-6">
-          {/* Left aligned Portfolio text */}
-          <motion.a
-            href="#home"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 
-                       bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
-          >
-            Portfolio
-          </motion.a>
+      <div className="flex justify-between items-center px-6 py-4">
+        {/* Logo / Brand */}
+        <h1 className="text-2xl font-bold text-gray-800">My Portfolio</h1>
 
-          {/* Right aligned Neon Glow Toggle Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-full border border-purple-400 text-purple-400 
-                       hover:text-white hover:bg-purple-500 hover:shadow-[0_0_15px_#a855f7] 
-                       transition-all duration-300"
-          >
-            {isOpen ? <X size={22} /> : <MoreHorizontal size={26} />}
-          </button>
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden p-2 text-gray-800"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Desktop Menu (hidden on mobile) */}
+        <div className="hidden md:flex gap-8">
+          {["Home", "About", "Projects", "Experience", "Certifications", "Resume", "Contact"].map(
+            (item, index) => (
+              <button
+                key={index}
+                className="text-gray-800 hover:text-blue-600 transition font-medium"
+              >
+                {item}
+              </button>
+            )
+          )}
         </div>
       </div>
 
-      {/* Right Side Floating Neon Buttons */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, x: 200 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 200 }}
-          className="fixed top-20 right-5 flex flex-col space-y-4 z-40"
-        >
-          {navItems.map((item) => (
-            <motion.a
-              key={item.name}
-              href={item.href}
-              onClick={() => setIsOpen(false)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 text-white font-medium 
-                         rounded-full border-2 border-transparent 
-                         bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
-                         shadow-lg hover:shadow-[0_0_20px_#a855f7] 
-                         transition-all duration-300"
+      {/* Mobile Menu Sliding In */}
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: isOpen ? 0 : "100%" }}
+        transition={{ type: "spring", stiffness: 80, damping: 20 }}
+        className="absolute top-0 right-0 w-full bg-white/90 backdrop-blur-md p-6 flex flex-row gap-6 justify-center items-center md:hidden shadow-lg"
+      >
+        {["Home", "About", "Projects", "Experience", "Certifications", "Resume", "Contact"].map(
+          (item, index) => (
+            <button
+              key={index}
+              className="text-gray-800 font-medium hover:text-blue-600 transition"
             >
-              {item.name}
-            </motion.a>
-          ))}
-        </motion.div>
-      )}
-    </motion.nav>
+              {item}
+            </button>
+          )
+        )}
+      </motion.div>
+    </nav>
   );
 };
 
