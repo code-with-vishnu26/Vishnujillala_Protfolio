@@ -97,7 +97,7 @@ const Hero = () => {
         }} className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-96 h-80 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl blur-3xl absolute inset-0"></div>
-              <div className="w-80 h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl relative z-10 flex items-center justify-center text-8xl font-bold text-white shadow-2xl">
+              <div className="w-80 h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl relative z-10 flex items-center justify-center text-8xl font-bold text-white shadow-2xl my-0 px-0 py-0 mx-[81px]">
                 VJ
               </div>
             </div>
