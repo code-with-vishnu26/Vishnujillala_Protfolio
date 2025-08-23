@@ -33,8 +33,8 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between h-16 w-full px-4 sm:px-6 lg:px-8">
-          {/* Portfolio text (aligned left) */}
+        <div className="flex items-center justify-between h-16 w-full px-6">
+          {/* Left aligned Portfolio text */}
           <motion.a
             href="#home"
             initial={{ opacity: 0 }}
@@ -45,32 +45,30 @@ const Navbar = () => {
             Portfolio
           </motion.a>
 
-          {/* Ellipsis Menu Button */}
-          <div className="ml-auto">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-white p-2 rounded-md hover:bg-white/10 transition-colors duration-200"
-            >
-              {isOpen ? <X size={24} /> : <MoreHorizontal size={28} />}
-            </button>
-          </div>
+          {/* Right aligned ellipsis button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-300 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors duration-200"
+          >
+            {isOpen ? <X size={24} /> : <MoreHorizontal size={28} />}
+          </button>
         </div>
       </div>
 
-      {/* Dropdown Menu */}
+      {/* Dropdown menu */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="bg-black/90 backdrop-blur-md"
+          className="bg-black/90 backdrop-blur-md border-t border-white/10"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="px-4 pt-3 pb-4 space-y-2">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
