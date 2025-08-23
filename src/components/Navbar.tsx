@@ -40,17 +40,23 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 
+                       bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
           >
             Portfolio
           </motion.a>
 
-          {/* Right aligned ellipsis button */}
+          {/* Right aligned Glassmorphism Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-300 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors duration-200"
+            className="p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 
+                       shadow-lg hover:bg-white/20 transition duration-300"
           >
-            {isOpen ? <X size={24} /> : <MoreHorizontal size={28} />}
+            {isOpen ? (
+              <X size={22} className="text-white" />
+            ) : (
+              <MoreHorizontal size={26} className="text-white" />
+            )}
           </button>
         </div>
       </div>
@@ -68,7 +74,8 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors"
+                className="block text-gray-300 hover:text-white px-3 py-2 rounded-md 
+                           text-base font-medium transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
