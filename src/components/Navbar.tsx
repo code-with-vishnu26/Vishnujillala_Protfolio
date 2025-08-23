@@ -46,22 +46,19 @@ const Navbar = () => {
             Portfolio
           </motion.a>
 
-          {/* Right aligned Glassmorphism Button */}
+          {/* Right aligned Neon Glow Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 
-                       shadow-lg hover:bg-white/20 transition duration-300"
+            className="p-2 rounded-full border border-purple-400 text-purple-400 
+                       hover:text-white hover:bg-purple-500 hover:shadow-[0_0_15px_#a855f7] 
+                       transition-all duration-300"
           >
-            {isOpen ? (
-              <X size={22} className="text-white" />
-            ) : (
-              <MoreHorizontal size={26} className="text-white" />
-            )}
+            {isOpen ? <X size={22} /> : <MoreHorizontal size={26} />}
           </button>
         </div>
       </div>
 
-      {/* Dropdown menu */}
+      {/* Dropdown menu with glowing buttons */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -69,14 +66,18 @@ const Navbar = () => {
           exit={{ opacity: 0, height: 0 }}
           className="bg-black/90 backdrop-blur-md border-t border-white/10"
         >
-          <div className="px-4 pt-3 pb-4 space-y-2">
+          <div className="px-4 pt-3 pb-4 space-y-3">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block text-gray-300 hover:text-white px-3 py-2 rounded-md 
-                           text-base font-medium transition-colors"
                 onClick={() => setIsOpen(false)}
+                className="block w-full text-center text-white font-medium 
+                           px-5 py-2 rounded-full 
+                           border-2 border-transparent 
+                           bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
+                           hover:shadow-[0_0_15px_#a855f7] 
+                           transition-all duration-300"
               >
                 {item.name}
               </a>
