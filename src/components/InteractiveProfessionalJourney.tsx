@@ -122,27 +122,25 @@ const JourneyNode = ({
           document.body.style.cursor = 'auto';
         }}
       >
-        <Sphere args={[0.3, 32, 32]}>
-          <meshStandardMaterial
-            color={node.color}
-            emissive={node.color}
-            emissiveIntensity={isSelected ? 0.3 : 0.1}
-            roughness={0.3}
-            metalness={0.7}
-          />
-        </Sphere>
+        <sphereGeometry args={[0.3, 32, 32]} />
+        <meshStandardMaterial
+          color={node.color}
+          emissive={node.color}
+          emissiveIntensity={isSelected ? 0.3 : 0.1}
+          roughness={0.3}
+          metalness={0.7}
+        />
       </mesh>
 
       {/* Animated ring */}
       <mesh ref={ringRef}>
-        <Ring args={[0.4, 0.5, 32]}>
-          <meshBasicMaterial
-            color={node.color}
-            transparent
-            opacity={isSelected ? 0.8 : 0.3}
-            side={THREE.DoubleSide}
-          />
-        </Ring>
+        <ringGeometry args={[0.4, 0.5, 32]} />
+        <meshBasicMaterial
+          color={node.color}
+          transparent
+          opacity={isSelected ? 0.8 : 0.3}
+          side={THREE.DoubleSide}
+        />
       </mesh>
 
       {/* Floating text label */}
@@ -160,9 +158,8 @@ const JourneyNode = ({
       {/* Selection indicator */}
       {isSelected && (
         <mesh>
-          <Ring args={[0.6, 0.7, 32]}>
-            <meshBasicMaterial color="#ffffff" transparent opacity={0.6} />
-          </Ring>
+          <ringGeometry args={[0.6, 0.7, 32]} />
+          <meshBasicMaterial color="#ffffff" transparent opacity={0.6} />
         </mesh>
       )}
     </group>
