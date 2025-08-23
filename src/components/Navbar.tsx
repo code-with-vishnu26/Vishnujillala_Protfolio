@@ -30,17 +30,17 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all ${
-        scrolled ? "bg-white/80 shadow-lg backdrop-blur-md" : "bg-transparent"
+        scrolled ? "bg-white/90 shadow-lg backdrop-blur-md" : "bg-white/70"
       }`}
     >
       <div className="flex justify-between items-center px-6 py-4">
         {/* Logo / Brand */}
-        <h1 className="text-2xl font-bold text-gray-800">My Portfolio</h1>
+        <h1 className="text-2xl font-bold text-blue-600">My Portfolio</h1>
 
         {/* Menu Button (always visible) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-gray-800 font-semibold px-4 py-2 hover:text-blue-600 transition"
+          className="text-blue-600 font-semibold px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition"
         >
           Menu
         </button>
@@ -53,12 +53,14 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
         className={`${
           isOpen ? "flex" : "hidden"
-        } flex-row justify-center gap-6 py-4 bg-white/90 backdrop-blur-md shadow-md`}
+        } flex-row justify-center gap-6 py-4 bg-white/95 backdrop-blur-md shadow-md`}
       >
         {menuItems.map((item, index) => (
           <button
             key={index}
-            className="text-gray-800 font-medium hover:text-blue-600 transition"
+            className="px-4 py-2 text-lg font-semibold text-gray-800 
+              hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-indigo-600 
+              rounded-xl shadow-sm hover:shadow-lg transition transform hover:scale-105"
           >
             {item}
           </button>
