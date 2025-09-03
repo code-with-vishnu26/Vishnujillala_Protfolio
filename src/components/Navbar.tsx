@@ -21,11 +21,43 @@ const Navbar = () => {
     "Home",
     "About",
     "Projects",
-    "Experience",
+    "Journey",
     "Certifications",
     "Resume",
     "Contact",
   ];
+
+  const handleNavClick = (item: string) => {
+    setIsOpen(false); // Close menu after clicking
+    
+    if (item === "Resume") {
+      // Download resume
+      window.open("https://drive.google.com/uc?export=download&id=1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf", "_blank");
+      return;
+    }
+    
+    // Map menu items to section IDs
+    const sectionMap: { [key: string]: string } = {
+      "Home": "hero",
+      "About": "about", 
+      "Projects": "projects",
+      "Journey": "professional-journey",
+      "Certifications": "certifications",
+      "Contact": "contact"
+    };
+    
+    const targetId = sectionMap[item];
+    if (targetId === "hero") {
+      // Scroll to top for Home
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (targetId) {
+      // Smooth scroll to section
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <nav
@@ -55,6 +87,7 @@ const Navbar = () => {
             {menuItems.map((item, index) => (
               <button
                 key={index}
+                onClick={() => handleNavClick(item)}
                 className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent rounded-md transition-colors"
               >
                 {item}
