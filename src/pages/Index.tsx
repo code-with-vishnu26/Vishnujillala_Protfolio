@@ -6,7 +6,7 @@ import About from "@/components/About";
 import TechnicalSkills from "@/components/TechnicalSkills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
-import ProfessionalJourney3D from "@/components/ProfessionalJourney3D";
+import ProfessionalJourney2D from "@/components/ProfessionalJourney2D";
 import MovingLogos from "@/components/MovingLogos";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
@@ -23,7 +23,7 @@ const Index = () => {
         <TechnicalSkills />
         <MovingLogos />
         <Projects />
-        <ProfessionalJourney3D />
+        <ProfessionalJourney2D />
         <Certifications />
         <Resume />
         <Contact />
