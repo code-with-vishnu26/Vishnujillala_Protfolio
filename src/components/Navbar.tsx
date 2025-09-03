@@ -32,7 +32,7 @@ const Navbar = () => {
     
     if (item === "Resume") {
       // Download resume
-      window.open("https://drive.google.com/uc?export=download&id=1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf", "_blank");
+      window.open("https://drive.google.com/uc?export=download&id=1tzCxxKywTCItE8WycimCWmbHQXDnHC0p", "_blank");
       return;
     }
     
@@ -61,47 +61,68 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all ${
-        scrolled ? "bg-card/95 shadow-lg backdrop-blur-md border-b border-border" : "bg-card/80"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        scrolled 
+          ? "bg-gradient-to-r from-slate-900/95 via-purple-900/90 to-slate-900/95 backdrop-blur-xl shadow-2xl shadow-purple-500/30 border-b border-purple-500/20" 
+          : "bg-gradient-to-r from-black/60 via-purple-900/40 to-black/60 backdrop-blur-sm"
       }`}
     >
       <div className="flex justify-between items-center px-4 py-4">
         {/* Logo / Brand */}
-        <h1 
-          className="text-2xl font-bold text-primary ml-8 cursor-pointer hover:text-primary/80 transition-colors"
+        <motion.h1 
+          className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent ml-8 cursor-pointer relative group"
           onClick={() => window.location.reload()}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          Portfolio
-        </h1>
+          <span className="relative z-10">Portfolio</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-lg blur-lg group-hover:blur-xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
+        </motion.h1>
 
         {/* Menu Items show when Menu is clicked - now inline */}
         <div className="flex items-center gap-4">
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 20 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, x: 20, scale: 0.9 }}
+            animate={{ 
+              opacity: isOpen ? 1 : 0, 
+              x: isOpen ? 0 : 20,
+              scale: isOpen ? 1 : 0.9
+            }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             className={`${
               isOpen ? "flex" : "hidden"
-            } flex-row gap-4 bg-muted/80 px-4 py-2 rounded-lg backdrop-blur-sm`}
+            } flex-row gap-3 bg-gradient-to-r from-slate-800/90 via-purple-800/80 to-slate-800/90 px-6 py-3 rounded-2xl backdrop-blur-xl border border-purple-500/30 shadow-2xl shadow-purple-500/20`}
           >
             {menuItems.map((item, index) => (
-              <button
+              <motion.button
                 key={index}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
                 onClick={() => handleNavClick(item)}
-                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent rounded-md transition-colors"
+                className="px-4 py-2 text-sm font-medium text-white hover:text-transparent hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:bg-clip-text rounded-xl transition-all duration-300 hover:bg-purple-500/20 border border-transparent hover:border-purple-400/50 relative group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {item}
-              </button>
+                <span className="relative z-10">{item}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-purple-400/10 to-pink-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.button>
             ))}
           </motion.div>
 
           {/* Menu Button */}
-          <button
+          <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="px-4 py-2 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors shadow-sm"
+            className="px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 text-white font-semibold rounded-2xl hover:from-purple-500 hover:via-pink-500 hover:to-cyan-500 transition-all duration-300 shadow-lg shadow-purple-500/30 border border-purple-400/30 relative group overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Menu
-          </button>
+            <span className="relative z-10 flex items-center gap-2">
+              Menu
+              <div className={`w-4 h-0.5 bg-white transition-all duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}></div>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </motion.button>
         </div>
       </div>
     </nav>

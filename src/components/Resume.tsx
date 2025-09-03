@@ -37,7 +37,7 @@ const Resume = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="https://drive.google.com/uc?export=download&id=1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf"
+                href="https://drive.google.com/uc?export=download&id=1tzCxxKywTCItE8WycimCWmbHQXDnHC0p"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -49,7 +49,7 @@ const Resume = () => {
               </motion.a>
               
               <motion.a
-                href="https://drive.google.com/file/d/1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf/view"
+                href="https://drive.google.com/file/d/1tzCxxKywTCItE8WycimCWmbHQXDnHC0p/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
