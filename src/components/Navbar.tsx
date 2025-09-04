@@ -70,13 +70,13 @@ const Navbar = () => {
       <div className="flex justify-between items-center px-4 py-4">
         {/* Logo / Brand */}
         <motion.h1 
-          className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent ml-8 cursor-pointer relative group"
+          className="text-2xl font-bold text-white ml-8 cursor-pointer relative group"
           onClick={() => window.location.reload()}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="relative z-10">Portfolio</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-lg blur-lg group-hover:blur-xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
+          <span className="relative z-10 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Portfolio</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300" />
         </motion.h1>
 
         {/* Menu Items show when Menu is clicked - now inline */}
@@ -100,7 +100,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}
                 onClick={() => handleNavClick(item)}
-                className="px-4 py-2 text-sm font-medium text-white hover:text-transparent hover:bg-gradient-to-r hover:from-cyan-400 hover:to-purple-400 hover:bg-clip-text rounded-xl transition-all duration-300 hover:bg-purple-500/20 border border-transparent hover:border-purple-400/50 relative group"
+                className="px-4 py-2 text-sm font-medium text-white hover:text-cyan-300 rounded-xl transition-all duration-300 hover:bg-purple-500/20 border border-transparent hover:border-purple-400/50 relative group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
