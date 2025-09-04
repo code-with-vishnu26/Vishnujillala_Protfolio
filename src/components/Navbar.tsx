@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { Menu, Home, User, FolderOpen, Briefcase, Award, FileText, Mail } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,6 +112,10 @@ const Navbar = () => {
             ))}
           </motion.div>
 
+        {/* Theme Switcher and Menu Button */}
+        <div className="flex items-center gap-3">
+          <ThemeSwitcher />
+          
           {/* Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
@@ -123,6 +129,7 @@ const Navbar = () => {
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.button>
+        </div>
         </div>
       </div>
     </nav>

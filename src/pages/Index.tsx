@@ -11,10 +11,12 @@ import MovingLogos from "@/components/MovingLogos";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
 import ParticleBackground from "@/components/ParticleBackground";
+import { EnhancedTimeline } from "@/components/EnhancedTimeline";
+import { LiveChatWidget } from "@/components/LiveChatWidget";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden transition-colors duration-300">
       <ParticleBackground />
       <Navbar />
       <main className="relative z-10">
@@ -23,11 +25,13 @@ const Index = () => {
         <TechnicalSkills />
         <MovingLogos />
         <Projects />
+        <EnhancedTimeline />
         <ProfessionalJourney2D />
         <Certifications />
         <Resume />
         <Contact />
       </main>
+      <LiveChatWidget />
     </div>
   );
 };
