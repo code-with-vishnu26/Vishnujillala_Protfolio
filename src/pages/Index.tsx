@@ -1,5 +1,4 @@
 
-import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -11,7 +10,6 @@ import MovingLogos from "@/components/MovingLogos";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
 import ParticleBackground from "@/components/ParticleBackground";
-import { EnhancedTimeline } from "@/components/EnhancedTimeline";
 import { LiveChatWidget } from "@/components/LiveChatWidget";
 
 const Index = () => {
@@ -25,7 +23,6 @@ const Index = () => {
         <TechnicalSkills />
         <MovingLogos />
         <Projects />
-        <EnhancedTimeline />
         <ProfessionalJourney2D />
         <Certifications />
         <Resume />
