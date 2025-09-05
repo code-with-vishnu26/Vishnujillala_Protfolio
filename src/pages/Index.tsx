@@ -6,7 +6,6 @@ import About from "@/components/About";
 import TechnicalSkills from "@/components/TechnicalSkills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
-import ProfessionalJourney2D from "@/components/ProfessionalJourney2D";
 import MovingLogos from "@/components/MovingLogos";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
@@ -26,7 +25,6 @@ const Index = () => {
         <MovingLogos />
         <Projects />
         <EnhancedTimeline />
-        <ProfessionalJourney2D />
         <Certifications />
         <Resume />
         <Contact />
