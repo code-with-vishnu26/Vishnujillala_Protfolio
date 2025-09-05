@@ -6,12 +6,10 @@ import About from "@/components/About";
 import TechnicalSkills from "@/components/TechnicalSkills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
-import ProfessionalJourney2D from "@/components/ProfessionalJourney2D";
 import MovingLogos from "@/components/MovingLogos";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
 import ParticleBackground from "@/components/ParticleBackground";
-import { EnhancedTimeline } from "@/components/EnhancedTimeline";
 import { LiveChatWidget } from "@/components/LiveChatWidget";
 
 const Index = () => {
@@ -25,8 +23,6 @@ const Index = () => {
         <TechnicalSkills />
         <MovingLogos />
         <Projects />
-        <EnhancedTimeline />
-        <ProfessionalJourney2D />
         <Certifications />
         <Resume />
         <Contact />
