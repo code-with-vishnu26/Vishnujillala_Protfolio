@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, MapPin, Calendar, X, Trophy, Target } from "lucide-react";
 import { useState } from "react";
-import woxsenImage from "@/assets/woxsen-university.jpg";
+import woxsenImage from "@/assets/woxsen-university.png";
 const About = () => {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const cardDetails = {
@@ -89,7 +89,7 @@ const About = () => {
 
           {selectedCard === 'education' && <div className="space-y-6">
               <div className="rounded-xl overflow-hidden mb-6">
-                <img src={woxsenImage} alt="Woxsen University" className="w-full h-48 object-cover" />
+                <img src="/lovable-uploads/edae03cb-9d12-4f8c-b78f-1af61bbf4c94.png" alt="Woxsen University" className="w-full h-48 object-cover" />
               </div>
               <div className="space-y-4">
                 <h4 className="text-xl font-semibold text-white">{(card.content as any).degree}</h4>
