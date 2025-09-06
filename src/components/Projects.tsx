@@ -2,10 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 import project1Image from "@/assets/project1.jpg";
-import project2Image from "@/assets/project2.jpg";
 import project3Image from "@/assets/project3.jpg";
-import project4Image from "@/assets/project4.jpg";
-import project5Image from "@/assets/project5.jpg";
 
 const Projects = () => {
   const projects = [
@@ -25,7 +22,7 @@ const Projects = () => {
       tech: ["Blockchain", "Smart Contracts"],
       github: "https://github.com/code-with-vishnu26/-Applicative-Project-SEM-5-.git",
       date: "2024",
-      image: project2Image
+      image: "/lovable-uploads/817c2dc5-68db-449d-9346-1e278ea9527c.png"
     },
     {
       id: 3,
@@ -43,7 +40,7 @@ const Projects = () => {
       tech: ["Nmap", "Nikto", "TheHarvester"],
       github: "https://github.com/code-with-vishnu26/Web-Vulnerability-Scanner.git",
       date: "November 2023",
-      image: project4Image
+      image: "/lovable-uploads/38961c04-800c-42d5-ba59-d1b699b9a70c.png"
     },
     {
       id: 5,
@@ -51,7 +48,7 @@ const Projects = () => {
       description: "OCR integration with lead automation for streamlined customer relationship management and automated workflow processing.",
       tech: ["React.js", "Python", "React Flow"],
       date: "2024",
-      image: project5Image
+      image: "/lovable-uploads/4c742a80-87d2-4bc3-be42-1059d2a3d874.png"
     }
   ];
 
