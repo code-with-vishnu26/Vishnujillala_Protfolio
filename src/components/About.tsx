@@ -23,7 +23,7 @@ const About = () => {
       color: "purple-400",
       content: {
         current: "Nizamabad, Telangana, India",
-        description: "Based in Nizamabad, a vibrant city in Telangana state. Open to remote work opportunities and willing to relocate for the right position.",
+        description: "Based in Nizamabad, a vibrant district in Telangana state. Open to remote work opportunities and willing to relocate for the right position.",
         details: ["Time Zone: IST (UTC +5:30)", "Open to Remote Work", "Willing to Relocate", "Passport Ready for International Opportunities"]
       }
     },
