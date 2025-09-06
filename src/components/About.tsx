@@ -35,7 +35,7 @@ const About = () => {
         title: "DIGITECH Hackathon Winner",
         date: "March 2025",
         description: "Ranked #1 among 50+ teams using Resume Ranker AI tool",
-        details: ["Developed AI-powered resume ranking system", "Used machine learning algorithms for scoring", "Implemented React frontend with Node.js backend", "Won ₹50,000 cash prize and internship opportunity"]
+        details: ["Developed AI-powered resume ranking system", "Used machine learning algorithms for scoring", "Implemented React frontend with Node.js backend"]
       }
     },
     interests: {
