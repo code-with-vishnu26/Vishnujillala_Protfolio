@@ -46,7 +46,7 @@ const About = () => {
         description: "Passionate about technology and continuous learning",
         interests: [{
           name: "Competitive Coding",
-          description: "Active on LeetCode. Solved 100+ problems"
+          description: "Regularly practicing problem-solving on LeetCode with 100+ completed challenges across data structures and algorithms."
         }, {
           name: "Open Source",
           description: "Contributing to open source projects on GitHub. Contributed to 10+ repositories with 200+ commits."
