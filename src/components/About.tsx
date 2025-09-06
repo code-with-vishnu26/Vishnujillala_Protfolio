@@ -12,7 +12,7 @@ const About = () => {
       content: {
         degree: "B.Tech – CSE (Core)",
         institution: "Woxsen University, Hyderabad",
-        duration: "2022 – 2026 (69%)",
+        duration: "2022 – 2026",
         description: "Pursuing Bachelor of Technology in Computer Science Engineering with focus on core computer science concepts, algorithms, and modern software development practices.",
         highlights: ["Current CGPA: 6.9/10", "Specialization in Full Stack Development", "Active participant in coding competitions", "Member of Computer Science Society"]
       }
@@ -223,7 +223,7 @@ const About = () => {
                   <p className="text-gray-400">Woxsen University, Hyderabad</p>
                   <div className="flex items-center space-x-2 text-sm text-gray-400">
                     <Calendar size={16} />
-                    <span>2022 – 2026 (69%)</span>
+                    <span>2022 – 2026</span>
                   </div>
                 </div>
               </motion.div>
