@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import FloatingCube from "./FloatingCube";
 import RotatingText3D from "./RotatingText3D";
+import { useLanguage } from "@/contexts/LanguageContext";
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <FloatingCube />
@@ -27,7 +30,7 @@ const Hero = () => {
           }} transition={{
             delay: 0.2,
             duration: 0.8
-          }}>Hello, This Is</motion.h2>
+          }}>{t('hero.greeting')}</motion.h2>
             
             <motion.h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" initial={{
             scale: 0.5
@@ -37,7 +40,7 @@ const Hero = () => {
             duration: 0.8,
             type: "spring"
           }}>
-              Vishnu Jillala
+              {t('hero.name')}
             </motion.h1>
             
             <motion.div initial={{
@@ -59,7 +62,7 @@ const Hero = () => {
             delay: 0.8,
             duration: 0.8
           }}>
-              Passionate about creating innovative solutions and building the future of technology
+              {t('hero.tagline')}
             </motion.p>
             
             <motion.div className="flex gap-4 mt-8" initial={{
@@ -73,13 +76,13 @@ const Hero = () => {
             duration: 0.8
           }}>
               <a href="#professional-journey" className="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
-                View My Work
+                {t('hero.viewWork')}
               </a>
               <a href="#contact" className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 text-white">
-                Contact Me
+                {t('hero.contactMe')}
               </a>
               <a href="https://drive.google.com/uc?export=download&id=1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border border-gray-400 rounded-full font-semibold hover:bg-white/10 transition-all duration-300">
-                Download Resume
+                {t('hero.downloadResume')}
               </a>
             </motion.div>
           </motion.div>

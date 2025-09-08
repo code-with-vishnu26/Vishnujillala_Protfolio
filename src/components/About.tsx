@@ -2,7 +2,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { GraduationCap, MapPin, Calendar, X, Trophy, Target } from "lucide-react";
 import { useState } from "react";
 import woxsenImage from "@/assets/woxsen-university.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 const About = () => {
+  const { t } = useLanguage();
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const cardDetails = {
     education: {
@@ -167,7 +169,7 @@ const About = () => {
           once: true
         }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              About Me
+              {t('about.title')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
           </motion.div>
@@ -185,15 +187,10 @@ const About = () => {
             once: true
           }} className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed mx-0 px-0 py-0 my-0">
-                I'm genuinely excited to start my career! I'm looking for a place where I can jump in, 
-                learn quickly, and grow alongside a supportive team. I bring a practical, problem-solving 
-                approach honed through my studies and a knack for breaking down big challenges into manageable 
-                steps.
+                {t('about.description1')}
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                I thrive in getting hands-on experience and helping teams succeed. What really energizes 
-                me is figuring out how technology can simplify complex tasks and bring people together to 
-                collaborate better—especially when it makes a real difference for others.
+                {t('about.description2')}
               </p>
             </motion.div>
 

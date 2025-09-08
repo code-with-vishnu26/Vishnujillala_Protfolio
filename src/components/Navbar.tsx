@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, Home, User, FolderOpen, Briefcase, Award, FileText, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -19,13 +22,13 @@ const Navbar = () => {
   }, []);
 
   const menuItems = [
-    "Home",
-    "About",
-    "Projects",
-    "Journey",
-    "Certifications",
-    "Resume",
-    "Contact",
+    { key: "nav.home", value: "Home" },
+    { key: "nav.about", value: "About" },
+    { key: "nav.projects", value: "Projects" },
+    { key: "nav.journey", value: "Journey" },
+    { key: "nav.certifications", value: "Certifications" },
+    { key: "nav.resume", value: "Resume" },
+    { key: "nav.contact", value: "Contact" },
   ];
 
   const handleNavClick = (item: string) => {
@@ -100,12 +103,12 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}
-                onClick={() => handleNavClick(item)}
+                onClick={() => handleNavClick(item.value)}
                 className="px-4 py-2 text-sm font-medium text-white hover:text-cyan-300 rounded-xl transition-all duration-300 hover:bg-purple-500/20 border border-transparent hover:border-purple-400/50 relative group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="relative z-10">{item}</span>
+                <span className="relative z-10">{t(item.key)}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-purple-400/10 to-pink-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.button>
             ))}
@@ -113,6 +116,7 @@ const Navbar = () => {
 
         {/* Menu Button */}
         <div className="flex items-center gap-3">
+          <LanguageSwitcher />
           
           {/* Menu Button */}
           <motion.button
