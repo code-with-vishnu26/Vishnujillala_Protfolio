@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import ProjectCard from "./ProjectCard";
+import { Github } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import aiCyberSecurityImage from "@/assets/ai-cyber-security.jpg";
 import blockchainPasswordImage from "@/assets/blockchain-password.jpg";
 import fullstackTemplateImage from "@/assets/fullstack-template.jpg";
@@ -8,6 +8,7 @@ import vulnerabilityScannerImage from "@/assets/vulnerability-scanner.jpg";
 import crmWorkflowImage from "@/assets/crm-workflow.jpg";
 
 const Projects = () => {
+  const { t } = useLanguage();
   const projects = [
     {
       id: 1,
@@ -66,7 +67,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Featured Projects
+            {t('projects.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
         </motion.div>
@@ -125,7 +126,7 @@ const Projects = () => {
                       className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
                     >
                       <Github size={16} />
-                      <span className="text-sm">Code</span>
+                      <span className="text-sm">{ t('projects.codeLabel')}</span>
                     </motion.a>
                   )}
                 </div>

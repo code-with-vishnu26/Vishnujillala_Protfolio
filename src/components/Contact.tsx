@@ -3,7 +3,10 @@ import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
 import { useState } from "react";
 import emailjs from '@emailjs/browser';
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,7 +21,7 @@ const Contact = () => {
         message: formData.message,
         to_email: 'soulpaths78@gmail.com'
       }, 'HXeAdtP1KAvEAaYQB');
-      toast.success("Message sent successfully!");
+      toast.success(t('contact.success'));
       setFormData({
         name: "",
         email: "",
@@ -26,7 +29,7 @@ const Contact = () => {
       });
     } catch (error) {
       console.error('EmailJS error:', error);
-      toast.error("Failed to send message. Please try again.");
+      toast.error(t('contact.error'));
     }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -67,7 +70,7 @@ const Contact = () => {
         once: true
       }} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Let's Connect
+            {t('contact.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
         </motion.div>
@@ -86,10 +89,9 @@ const Contact = () => {
           once: true
         }} className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('contact.getInTouch')}</h3>
               <p className="text-gray-300 leading-relaxed">
-                I'm always open to discussing new opportunities, interesting projects, 
-                or just having a conversation about technology. Feel free to reach out!
+                {t('contact.description')}
               </p>
             </div>
 
@@ -117,7 +119,7 @@ const Contact = () => {
             </div>
 
             <div className="pt-6">
-              <h4 className="text-lg font-semibold text-white mb-4">Follow Me</h4>
+              <h4 className="text-lg font-semibold text-white mb-4">{t('contact.followMe')}</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((link, index) => {
                 const Icon = link.icon;
@@ -147,23 +149,23 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  Name
+                  {t('contact.name')}
                 </label>
-                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200" placeholder="Your Name" />
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200" placeholder={t('contact.namePlaceholder')} />
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email
+                  {t('contact.email')}
                 </label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200" placeholder="your.email@example.com" />
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200" placeholder={t('contact.emailPlaceholder')} />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message
+                  {t('contact.message')}
                 </label>
-                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={4} className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200 resize-none" placeholder="Tell me about your project or just say hello!" />
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={4} className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200 resize-none" placeholder={t('contact.messagePlaceholder')} />
               </div>
               
               <motion.button type="submit" whileHover={{
@@ -172,7 +174,7 @@ const Contact = () => {
               scale: 0.98
             }} className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
                 <Send size={20} />
-                <span>Send Message</span>
+                <span>{t('contact.send')}</span>
               </motion.button>
             </form>
           </motion.div>

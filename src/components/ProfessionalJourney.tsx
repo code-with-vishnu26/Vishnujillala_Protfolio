@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Briefcase, Cloud, Code, Award, GraduationCap, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProfessionalJourney = () => {
+  const { t } = useLanguage();
   const [selectedJourney, setSelectedJourney] = useState<number | null>(null);
 
   const journeyData = [
@@ -81,7 +83,7 @@ const ProfessionalJourney = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            My Professional Journey
+            {t('journey.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
         </motion.div>
@@ -282,7 +284,7 @@ const ProfessionalJourney = () => {
 
                 {/* Achievements */}
                 <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-3">Key Achievements</h4>
+                  <h4 className="text-lg font-semibold text-white mb-3">{t('journey.keyAchievements')}</h4>
                   <ul className="space-y-2">
                     {selectedData.achievements.map((achievement, index) => (
                       <motion.li
@@ -301,7 +303,7 @@ const ProfessionalJourney = () => {
 
                 {/* Tech Stack */}
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Tech Stack</h4>
+                  <h4 className="text-lg font-semibold text-white mb-3">{t('journey.techStack')}</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedData.techStack.map((tech, index) => (
                       <motion.span

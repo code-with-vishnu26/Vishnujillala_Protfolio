@@ -67,57 +67,41 @@ export default {
   },
   projects: {
     title: "Proyectos Destacados",
-    list: [
-      {
-        title: "IA en Detección de Amenazas de Ciberseguridad",
-        description: "Usé API de detección de phishing basada en ML para analizar URLs y correos electrónicos. Redujo falsos positivos en 40% y escaneó 1,000+ URLs con 95% de precisión en detección."
-      },
-      {
-        title: "Gestión Segura de Contraseñas Usando Blockchain",
-        description: "Almacén centralizado de contraseñas con contratos inteligentes. Redujo el riesgo de violación en 99% con registros de datos cifrados de extremo a extremo e inmutables."
-      },
-      {
-        title: "Plantilla de Aplicación Web Full-Stack",
-        description: "Plantilla basada en Docker con Next.js y Express/NestJS. Características SSR, CI/CD, autenticación JWT, APIs REST y Socket.IO para funciones en tiempo real."
-      },
-      {
-        title: "Escáner de Vulnerabilidades Web",
-        description: "Automatizó 80+ pruebas de seguridad, encontró 500+ vulnerabilidades y redujo el tiempo de escaneo en 60% usando herramientas completas de pruebas de seguridad."
-      },
-      {
-        title: "Flujo de Trabajo de IA Mini CRM",
-        description: "Integración OCR con automatización de leads para gestión simplificada de relaciones con clientes y procesamiento automatizado de flujo de trabajo."
-      }
-    ]
+    codeLabel: "Código"
   },
   skills: {
-    title: "Habilidades Técnicas",
-    categories: {
-      frontend: "Desarrollo Frontend",
-      backend: "Desarrollo Backend",
-      database: "Gestión de Base de Datos",
-      tools: "Herramientas de Desarrollo",
-      cloud: "Nube y DevOps",
-      other: "Otras Tecnologías"
-    }
+    title: "Habilidades"
   },
   certifications: {
     title: "Certificaciones y Logros"
   },
   resume: {
     title: "Currículum",
-    download: "Descargar Currículum Completo",
-    viewOnline: "Ver En Línea"
+    downloadTitle: "Descargar Mi Currículum",
+    description: "Obtén una visión completa de mis habilidades, experiencia y calificaciones",
+    download: "Descargar PDF",
+    preview: "Vista Previa En Línea",
+    lastUpdated: "Última actualización: Enero 2024"
   },
   contact: {
-    title: "Ponte en Contacto",
-    subtitle: "Hablemos de tu próximo proyecto",
-    name: "Tu Nombre",
-    email: "Tu Correo Electrónico",
-    message: "Tu Mensaje",
+    title: "Conectémonos",
+    getInTouch: "Ponte en Contacto",
+    description: "Siempre estoy abierto a discutir nuevas oportunidades, proyectos interesantes, o simplemente tener una conversación sobre tecnología. ¡No dudes en contactarme!",
+    followMe: "Sígueme",
+    name: "Nombre",
+    email: "Correo Electrónico",
+    message: "Mensaje",
+    namePlaceholder: "Tu Nombre",
+    emailPlaceholder: "tu.correo@ejemplo.com",
+    messagePlaceholder: "¡Cuéntame sobre tu proyecto o simplemente di hola!",
     send: "Enviar Mensaje",
     success: "¡Mensaje enviado exitosamente!",
     error: "Error al enviar mensaje. Por favor intenta de nuevo."
+  },
+  journey: {
+    title: "Mi Trayectoria Profesional",
+    keyAchievements: "Logros Clave",
+    techStack: "Stack Tecnológico"
   },
   nav: {
     home: "Inicio",

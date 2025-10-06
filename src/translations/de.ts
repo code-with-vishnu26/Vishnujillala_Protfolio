@@ -67,57 +67,41 @@ export default {
   },
   projects: {
     title: "Hervorgehobene Projekte",
-    list: [
-      {
-        title: "KI in Cybersicherheits-Bedrohungserkennung",
-        description: "Verwendete ML-basierte Phishing-Erkennungs-API zur Analyse von URLs und E-Mails. Reduzierte Fehlalarme um 40% und scannte 1.000+ URLs mit 95% Erkennungsgenauigkeit."
-      },
-      {
-        title: "Sichere Passwort-Verwaltung mit Blockchain",
-        description: "Zentraler Passwort-Speicher mit Smart Contracts. Reduzierte Verletzungsrisiko um 99% mit Ende-zu-Ende verschlüsselten und unveränderlichen Datenaufzeichnungen."
-      },
-      {
-        title: "Full-Stack Web-App-Vorlage",
-        description: "Docker-basierte Vorlage mit Next.js und Express/NestJS. Features SSR, CI/CD, JWT-Authentifizierung, REST-APIs und Socket.IO für Echtzeit-Features."
-      },
-      {
-        title: "Web-Schwachstellen-Scanner",
-        description: "Automatisierte 80+ Sicherheitstests, fand 500+ Schwachstellen und reduzierte Scan-Zeit um 60% mit umfassenden Sicherheitstest-Tools."
-      },
-      {
-        title: "Mini CRM KI Workflow",
-        description: "OCR-Integration mit Lead-Automatisierung für optimiertes Customer Relationship Management und automatisierte Workflow-Verarbeitung."
-      }
-    ]
+    codeLabel: "Code"
   },
   skills: {
-    title: "Technische Fähigkeiten",
-    categories: {
-      frontend: "Frontend-Entwicklung",
-      backend: "Backend-Entwicklung",
-      database: "Datenbankverwaltung",
-      tools: "Entwicklungstools",
-      cloud: "Cloud & DevOps",
-      other: "Andere Technologien"
-    }
+    title: "Fähigkeiten"
   },
   certifications: {
     title: "Zertifizierungen & Leistungen"
   },
   resume: {
     title: "Lebenslauf",
-    download: "Vollständigen Lebenslauf Herunterladen",
-    viewOnline: "Online Ansehen"
+    downloadTitle: "Meinen Lebenslauf Herunterladen",
+    description: "Erhalten Sie einen umfassenden Überblick über meine Fähigkeiten, Erfahrungen und Qualifikationen",
+    download: "PDF Herunterladen",
+    preview: "Online Vorschau",
+    lastUpdated: "Zuletzt aktualisiert: Januar 2024"
   },
   contact: {
-    title: "In Kontakt Treten",
-    subtitle: "Lass uns über dein nächstes Projekt sprechen",
-    name: "Dein Name",
-    email: "Deine E-Mail",
-    message: "Deine Nachricht",
+    title: "Lass uns Verbinden",
+    getInTouch: "In Kontakt Treten",
+    description: "Ich bin immer offen für Diskussionen über neue Möglichkeiten, interessante Projekte oder einfach ein Gespräch über Technologie. Zögere nicht, mich zu kontaktieren!",
+    followMe: "Folge Mir",
+    name: "Name",
+    email: "E-Mail",
+    message: "Nachricht",
+    namePlaceholder: "Dein Name",
+    emailPlaceholder: "deine.email@beispiel.com",
+    messagePlaceholder: "Erzähle mir von deinem Projekt oder sag einfach hallo!",
     send: "Nachricht Senden",
     success: "Nachricht erfolgreich gesendet!",
     error: "Fehler beim Senden der Nachricht. Bitte versuche es erneut."
+  },
+  journey: {
+    title: "Mein Beruflicher Werdegang",
+    keyAchievements: "Wichtige Erfolge",
+    techStack: "Tech Stack"
   },
   nav: {
     home: "Startseite",

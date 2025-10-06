@@ -67,57 +67,41 @@ export default {
   },
   projects: {
     title: "Featured Projects",
-    list: [
-      {
-        title: "AI in Cyber Security Threat Detection",
-        description: "Used ML-based phishing detection API to analyze URLs and emails. Reduced false positives by 40% and scanned 1,000+ URLs with 95% detection accuracy."
-      },
-      {
-        title: "Secure Password Management Using Blockchain", 
-        description: "Centralized password store with smart contracts. Reduced breach risk by 99% with end-to-end encrypted and immutable data records."
-      },
-      {
-        title: "Full-Stack Web App Template",
-        description: "Docker-based template with Next.js and Express/NestJS. Features SSR, CI/CD, JWT authentication, REST APIs, and Socket.IO for real-time features."
-      },
-      {
-        title: "Web Vulnerability Scanner",
-        description: "Automated 80+ security tests, found 500+ vulnerabilities, and reduced scan time by 60% using comprehensive security testing tools."
-      },
-      {
-        title: "Mini CRM AI Workflow",
-        description: "OCR integration with lead automation for streamlined customer relationship management and automated workflow processing."
-      }
-    ]
+    codeLabel: "Code"
   },
   skills: {
-    title: "Technical Skills",
-    categories: {
-      frontend: "Frontend Development",
-      backend: "Backend Development", 
-      database: "Database Management",
-      tools: "Development Tools",
-      cloud: "Cloud & DevOps",
-      other: "Other Technologies"
-    }
+    title: "Skills"
   },
   certifications: {
     title: "Certifications & Achievements"
   },
   resume: {
     title: "Resume",
-    download: "Download Full Resume",
-    viewOnline: "View Online"
+    downloadTitle: "Download My Resume",
+    description: "Get a comprehensive overview of my skills, experience, and qualifications",
+    download: "Download PDF",
+    preview: "Preview Online",
+    lastUpdated: "Last updated: January 2024"
   },
   contact: {
-    title: "Get In Touch",
-    subtitle: "Let's discuss your next project",
-    name: "Your Name",
-    email: "Your Email", 
-    message: "Your Message",
+    title: "Let's Connect",
+    getInTouch: "Get in Touch",
+    description: "I'm always open to discussing new opportunities, interesting projects, or just having a conversation about technology. Feel free to reach out!",
+    followMe: "Follow Me",
+    name: "Name",
+    email: "Email",
+    message: "Message",
+    namePlaceholder: "Your Name",
+    emailPlaceholder: "your.email@example.com",
+    messagePlaceholder: "Tell me about your project or just say hello!",
     send: "Send Message",
     success: "Message sent successfully!",
     error: "Failed to send message. Please try again."
+  },
+  journey: {
+    title: "My Professional Journey",
+    keyAchievements: "Key Achievements",
+    techStack: "Tech Stack"
   },
   nav: {
     home: "Home",

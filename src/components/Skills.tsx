@@ -1,8 +1,9 @@
-
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 import SkillSphere from "./SkillSphere";
 
 const Skills = () => {
+  const { t } = useLanguage();
   const skills = [
     { name: "Python", level: 90, color: "#3776ab" },
     { name: "JavaScript", level: 85, color: "#f7df1e" },
@@ -29,7 +30,7 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Skills
+            {t('skills.title')}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
         </motion.div>

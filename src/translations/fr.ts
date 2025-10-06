@@ -67,57 +67,41 @@ export default {
   },
   projects: {
     title: "Projets en Vedette",
-    list: [
-      {
-        title: "IA dans la Détection des Menaces de Cybersécurité",
-        description: "Utilisé une API de détection de phishing basée sur ML pour analyser les URLs et emails. Réduit les faux positifs de 40% et scanné 1,000+ URLs avec 95% de précision de détection."
-      },
-      {
-        title: "Gestion Sécurisée des Mots de Passe Utilisant la Blockchain",
-        description: "Stockage centralisé de mots de passe avec contrats intelligents. Réduit le risque de violation de 99% avec des enregistrements de données cryptés de bout en bout et immuables."
-      },
-      {
-        title: "Modèle d'Application Web Full-Stack",
-        description: "Modèle basé sur Docker avec Next.js et Express/NestJS. Fonctionnalités SSR, CI/CD, authentification JWT, APIs REST et Socket.IO pour les fonctionnalités temps réel."
-      },
-      {
-        title: "Scanner de Vulnérabilités Web",
-        description: "Automatisé 80+ tests de sécurité, trouvé 500+ vulnérabilités et réduit le temps de scan de 60% utilisant des outils de test de sécurité complets."
-      },
-      {
-        title: "Workflow IA Mini CRM",
-        description: "Intégration OCR avec automatisation de leads pour une gestion simplifiée des relations client et un traitement automatisé du workflow."
-      }
-    ]
+    codeLabel: "Code"
   },
   skills: {
-    title: "Compétences Techniques",
-    categories: {
-      frontend: "Développement Frontend",
-      backend: "Développement Backend",
-      database: "Gestion de Base de Données",
-      tools: "Outils de Développement",
-      cloud: "Cloud et DevOps",
-      other: "Autres Technologies"
-    }
+    title: "Compétences"
   },
   certifications: {
     title: "Certifications et Réalisations"
   },
   resume: {
     title: "CV",
-    download: "Télécharger le CV Complet",
-    viewOnline: "Voir En Ligne"
+    downloadTitle: "Télécharger Mon CV",
+    description: "Obtenez un aperçu complet de mes compétences, expérience et qualifications",
+    download: "Télécharger PDF",
+    preview: "Aperçu En Ligne",
+    lastUpdated: "Dernière mise à jour : Janvier 2024"
   },
   contact: {
-    title: "Entrer en Contact",
-    subtitle: "Discutons de votre prochain projet",
-    name: "Votre Nom",
-    email: "Votre Email",
-    message: "Votre Message",
+    title: "Connectons-nous",
+    getInTouch: "Entrer en Contact",
+    description: "Je suis toujours ouvert à discuter de nouvelles opportunités, de projets intéressants, ou simplement d'avoir une conversation sur la technologie. N'hésitez pas à me contacter !",
+    followMe: "Suivez-moi",
+    name: "Nom",
+    email: "Email",
+    message: "Message",
+    namePlaceholder: "Votre Nom",
+    emailPlaceholder: "votre.email@exemple.com",
+    messagePlaceholder: "Parlez-moi de votre projet ou dites simplement bonjour !",
     send: "Envoyer le Message",
     success: "Message envoyé avec succès !",
     error: "Échec de l'envoi du message. Veuillez réessayer."
+  },
+  journey: {
+    title: "Mon Parcours Professionnel",
+    keyAchievements: "Réalisations Clés",
+    techStack: "Stack Technique"
   },
   nav: {
     home: "Accueil",
