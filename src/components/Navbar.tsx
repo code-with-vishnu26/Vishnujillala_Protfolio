@@ -119,7 +119,7 @@ const Navbar = () => {
           {/* Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 text-white font-semibold rounded-2xl hover:from-purple-500 hover:via-pink-500 hover:to-cyan-500 transition-all duration-300 shadow-lg shadow-purple-500/30 border border-purple-400/30 relative group overflow-hidden"
+            className="px-6 py-3 bg-transparent text-white font-semibold rounded-2xl hover:bg-white/10 transition-all duration-300 border border-white/30 hover:border-white/50 relative group overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
