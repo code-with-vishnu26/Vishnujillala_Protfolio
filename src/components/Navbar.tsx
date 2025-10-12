@@ -116,8 +116,6 @@ const Navbar = () => {
 
         {/* Menu Button */}
         <div className="flex items-center gap-3">
-          <LanguageSwitcher />
-          
           {/* Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
@@ -131,6 +129,8 @@ const Navbar = () => {
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.button>
+          
+          <LanguageSwitcher />
         </div>
         </div>
       </div>
