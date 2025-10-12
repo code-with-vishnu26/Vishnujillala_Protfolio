@@ -7,13 +7,6 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import OceanSurface from "./pages/OceanSurface";
-import BelowSurface from "./pages/BelowSurface";
-import MidOcean from "./pages/MidOcean";
-import OceanFloor from "./pages/OceanFloor";
-import TwilightZone from "./pages/TwilightZone";
-import MidnightZone from "./pages/MidnightZone";
-import Abyss from "./pages/Abyss";
 
 const queryClient = new QueryClient();
 
@@ -31,14 +24,7 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<OceanSurface />} />
-              <Route path="/below-surface" element={<BelowSurface />} />
-              <Route path="/mid-ocean" element={<MidOcean />} />
-              <Route path="/ocean-floor" element={<OceanFloor />} />
-              <Route path="/twilight-zone" element={<TwilightZone />} />
-              <Route path="/midnight-zone" element={<MidnightZone />} />
-              <Route path="/abyss" element={<Abyss />} />
-              <Route path="/portfolio" element={<Index />} />
+              <Route path="/" element={<Index />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
