@@ -22,7 +22,7 @@ const LanguageSwitcher = () => {
     <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+        className="flex items-center space-x-2 px-6 py-3 bg-transparent rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

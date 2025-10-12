@@ -73,15 +73,15 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center px-4 py-4">
         {/* Logo / Brand */}
-        <motion.h1 
-          className="text-2xl font-bold text-white ml-8 cursor-pointer relative group"
+        <motion.button 
+          className="px-6 py-3 text-white ml-8 cursor-pointer relative group bg-transparent rounded-2xl border border-transparent hover:border-white/30 transition-all duration-300"
           onClick={() => window.location.reload()}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="relative z-10 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Portfolio</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300" />
-        </motion.h1>
+          <span className="relative z-10 text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Portfolio</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300" />
+        </motion.button>
 
         {/* Menu Items show when Menu is clicked - now inline */}
         <div className="flex items-center gap-4">
