@@ -14,13 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      failed_pin_attempts: {
+        Row: {
+          attempt_count: number | null
+          created_at: string | null
+          email: string
+          id: string
+          ip_address: string | null
+          last_attempt_at: string | null
+          profile_name: string
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          attempt_count?: number | null
+          created_at?: string | null
+          email: string
+          id?: string
+          ip_address?: string | null
+          last_attempt_at?: string | null
+          profile_name: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          attempt_count?: number | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          ip_address?: string | null
+          last_attempt_at?: string | null
+          profile_name?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      otp_codes: {
+        Row: {
+          code: string
+          created_at: string | null
+          email: string
+          expires_at: string | null
+          id: string
+          user_id: string
+          verified: boolean | null
+        }
+        Insert: {
+          code: string
+          created_at?: string | null
+          email: string
+          expires_at?: string | null
+          id?: string
+          user_id: string
+          verified?: boolean | null
+        }
+        Update: {
+          code?: string
+          created_at?: string | null
+          email?: string
+          expires_at?: string | null
+          id?: string
+          user_id?: string
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
+      profile_pins: {
+        Row: {
+          created_at: string | null
+          id: string
+          pin_hash: string
+          profile_name: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          pin_hash: string
+          profile_name: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          pin_hash?: string
+          profile_name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      verify_profile_pin: {
+        Args: { pin_input: string; profile_name_input: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never

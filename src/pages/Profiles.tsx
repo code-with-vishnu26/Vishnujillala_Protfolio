@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 import { User, Compass, Users, Heart } from "lucide-react";
 import { toast } from "sonner";
+import { PinDialog } from "@/components/PinDialog";
 
 const profiles = [
   {
@@ -35,6 +36,10 @@ const profiles = [
 const Profiles = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [showPinDialog, setShowPinDialog] = useState(false);
+  const [selectedProfile, setSelectedProfile] = useState<string>("");
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
     // Check if user is authenticated
@@ -42,6 +47,7 @@ const Profiles = () => {
       if (!session) {
         navigate("/auth");
       } else {
+        setUserEmail(session.user.email || "");
         setLoading(false);
       }
     });
@@ -51,6 +57,8 @@ const Profiles = () => {
     } = supabase.auth.onAuthStateChange((event, session) => {
       if (!session) {
         navigate("/auth");
+      } else {
+        setUserEmail(session.user.email || "");
       }
     });
 
@@ -58,10 +66,102 @@ const Profiles = () => {
   }, [navigate]);
 
   const handleProfileClick = (profileId: string) => {
-    if (profileId === "recruiter") {
-      navigate("/portfolio");
-    } else {
-      toast.info(`${profileId.charAt(0).toUpperCase() + profileId.slice(1)} profile coming soon!`);
+    setSelectedProfile(profileId);
+    setShowPinDialog(true);
+    setFailedAttempts(0);
+  };
+
+  const handleVerifyPin = async (pin: string): Promise<boolean> => {
+    try {
+      const { data: session } = await supabase.auth.getSession();
+      const userId = session.session?.user.id;
+
+      // Verify PIN using database function
+      const { data, error } = await supabase.rpc("verify_profile_pin", {
+        profile_name_input: selectedProfile,
+        pin_input: pin,
+      });
+
+      if (error) {
+        console.error("Error verifying PIN:", error);
+        throw error;
+      }
+
+      if (data) {
+        // Correct PIN
+        setShowPinDialog(false);
+        if (selectedProfile === "recruiter") {
+          navigate("/portfolio");
+        } else {
+          toast("Coming soon!", {
+            description: `The ${selectedProfile} profile is being prepared for you.`,
+          });
+        }
+        return true;
+      } else {
+        // Wrong PIN
+        const newAttemptCount = failedAttempts + 1;
+        setFailedAttempts(newAttemptCount);
+
+        // Track failed attempt
+        if (userId) {
+          const { error: insertError } = await supabase
+            .from("failed_pin_attempts")
+            .insert({
+              user_id: userId,
+              email: userEmail,
+              profile_name: selectedProfile,
+              ip_address: await getUserIp(),
+              user_agent: navigator.userAgent,
+              attempt_count: newAttemptCount,
+            });
+
+          if (insertError) {
+            console.error("Error tracking failed attempt:", insertError);
+          }
+        }
+
+        // Send admin alert after 3 failed attempts
+        if (newAttemptCount >= 3) {
+          await sendAdminAlert(newAttemptCount);
+          toast.error("Too many failed attempts. Admin has been notified.");
+        }
+
+        return false;
+      }
+    } catch (error) {
+      console.error("Error in PIN verification:", error);
+      toast.error("Failed to verify PIN");
+      return false;
+    }
+  };
+
+  const getUserIp = async (): Promise<string> => {
+    try {
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      return "Unknown";
+    }
+  };
+
+  const sendAdminAlert = async (attemptCount: number) => {
+    try {
+      const ipAddress = await getUserIp();
+      
+      await supabase.functions.invoke("send-admin-alert", {
+        body: {
+          email: userEmail,
+          profileName: selectedProfile,
+          attemptCount,
+          ipAddress,
+          userAgent: navigator.userAgent,
+          timestamp: new Date().toISOString(),
+        },
+      });
+    } catch (error) {
+      console.error("Error sending admin alert:", error);
     }
   };
 
@@ -129,6 +229,13 @@ const Profiles = () => {
             Sign Out
           </button>
         </motion.div>
+
+        <PinDialog
+          open={showPinDialog}
+          onOpenChange={setShowPinDialog}
+          profileName={selectedProfile}
+          onVerify={handleVerifyPin}
+        />
       </div>
     </div>
   );
