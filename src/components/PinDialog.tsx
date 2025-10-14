@@ -29,12 +29,14 @@ export const PinDialog = ({ open, onOpenChange, profileName, onVerify }: PinDial
 
     const isValid = await onVerify(pin);
     
-    if (!isValid) {
+    if (isValid) {
+      // Close dialog on success
+      handleClose();
+    } else {
       setError("Incorrect PIN. Please try again.");
       setPin("");
+      setLoading(false);
     }
-    
-    setLoading(false);
   };
 
   const handleClose = () => {
