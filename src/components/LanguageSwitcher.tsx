@@ -40,47 +40,48 @@ const LanguageSwitcher = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full mt-2 right-0 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-2xl overflow-hidden z-50 min-w-[200px]"
-          >
-            {languages.map((lang) => (
-              <motion.button
-                key={lang.code}
-                onClick={() => {
-                  setLanguage(lang.code);
-                  setIsOpen(false);
-                }}
-                className={`w-full px-4 py-3 text-left hover:bg-white/20 transition-all duration-200 flex items-center space-x-3 ${
-                  language === lang.code ? 'bg-white/20 text-white' : 'text-gray-300'
-                }`}
-                whileHover={{ x: 4 }}
-              >
-                <span className="text-lg">{lang.flag}</span>
-                <span className="text-sm font-medium">{lang.name}</span>
-                {language === lang.code && (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="ml-auto w-2 h-2 bg-blue-400 rounded-full"
-                  />
-                )}
-              </motion.button>
-            ))}
-          </motion.div>
+          <>
+            {/* Overlay to close dropdown when clicking outside */}
+            <div 
+              className="fixed inset-0 z-[9998]"
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-slate-800/95 via-purple-800/90 to-slate-800/95 backdrop-blur-xl rounded-xl border border-purple-500/30 shadow-2xl overflow-hidden z-[9999] w-[280px] max-h-[400px] overflow-y-auto"
+            >
+              <div className="p-2">
+                {languages.map((lang) => (
+                  <motion.button
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code);
+                      setIsOpen(false);
+                    }}
+                    className={`w-full px-4 py-3 text-left hover:bg-purple-500/20 transition-all duration-200 flex items-center space-x-3 rounded-lg ${
+                      language === lang.code ? 'bg-purple-500/30 text-cyan-300' : 'text-white'
+                    }`}
+                    whileHover={{ x: 4 }}
+                  >
+                    <span className="text-xl">{lang.flag}</span>
+                    <span className="text-base font-medium">{lang.name}</span>
+                    {language === lang.code && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="ml-auto w-2 h-2 bg-cyan-400 rounded-full"
+                      />
+                    )}
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-
-      {/* Overlay to close dropdown when clicking outside */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
     </div>
   );
 };
