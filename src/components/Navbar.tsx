@@ -1,13 +1,24 @@
 import { useState, useEffect } from "react";
-import { Menu, Home, User, FolderOpen, Briefcase, Award, FileText, Mail } from "lucide-react";
+import { Menu, Home, User, FolderOpen, Briefcase, Award, FileText, Mail, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [userEmail, setUserEmail] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +30,25 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Get current user's email
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user?.email) {
+        setUserEmail(session.user.email);
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session?.user?.email) {
+        setUserEmail(session.user.email);
+      } else {
+        setUserEmail("");
+      }
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   const menuItems = [
@@ -131,6 +161,38 @@ const Navbar = () => {
           </motion.button>
           
           <LanguageSwitcher />
+
+          {/* Profile Button */}
+          {userEmail && (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <motion.button
+                  className="relative group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Avatar className="h-10 w-10 border-2 border-white/30 hover:border-white/50 transition-all duration-300 cursor-pointer">
+                    <AvatarFallback className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 text-white font-bold text-lg">
+                      {userEmail.charAt(0).toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent 
+                align="end" 
+                className="w-48 bg-gradient-to-r from-slate-800/95 via-purple-800/90 to-slate-800/95 backdrop-blur-xl border border-purple-500/30 shadow-2xl shadow-purple-500/20"
+              >
+                <DropdownMenuItem 
+                  onClick={() => navigate("/profiles")}
+                  className="text-white hover:text-cyan-300 cursor-pointer hover:bg-purple-500/20 transition-all duration-300"
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Exit
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
         </div>
       </div>
