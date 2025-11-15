@@ -181,8 +181,11 @@ const Navbar = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent 
                 align="end" 
-                className="w-48 bg-gradient-to-r from-slate-800/95 via-purple-800/90 to-slate-800/95 backdrop-blur-xl border border-purple-500/30 shadow-2xl shadow-purple-500/20"
+                className="w-56 bg-gradient-to-r from-slate-800/95 via-purple-800/90 to-slate-800/95 backdrop-blur-xl border border-purple-500/30 shadow-2xl shadow-purple-500/20"
               >
+                <div className="px-3 py-2 border-b border-purple-500/20">
+                  <p className="text-sm text-cyan-300 font-medium truncate">{userEmail}</p>
+                </div>
                 <DropdownMenuItem 
                   onClick={() => navigate("/profiles")}
                   className="text-white hover:text-cyan-300 cursor-pointer hover:bg-purple-500/20 transition-all duration-300"
