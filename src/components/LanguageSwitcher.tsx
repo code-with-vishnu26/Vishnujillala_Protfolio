@@ -47,13 +47,13 @@ const LanguageSwitcher = () => {
               onClick={() => setIsOpen(false)}
             />
             <motion.div
-              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              initial={{ opacity: 0, y: 5, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              exit={{ opacity: 0, y: 5, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-slate-800/95 via-purple-800/90 to-slate-800/95 backdrop-blur-xl rounded-xl border border-purple-500/30 shadow-2xl overflow-hidden z-[9999] w-[280px] max-h-[400px] overflow-y-auto"
+              className="absolute left-0 top-full mt-2 bg-gradient-to-br from-slate-900/98 via-purple-900/95 to-slate-900/98 backdrop-blur-xl rounded-2xl border border-purple-400/30 shadow-2xl overflow-hidden z-[9999] w-[320px] max-h-[420px] overflow-y-auto"
             >
-              <div className="p-2">
+              <div className="p-3">
                 {languages.map((lang) => (
                   <motion.button
                     key={lang.code}
@@ -61,18 +61,18 @@ const LanguageSwitcher = () => {
                       setLanguage(lang.code);
                       setIsOpen(false);
                     }}
-                    className={`w-full px-4 py-3 text-left hover:bg-purple-500/20 transition-all duration-200 flex items-center space-x-3 rounded-lg ${
-                      language === lang.code ? 'bg-purple-500/30 text-cyan-300' : 'text-white'
+                    className={`w-full px-5 py-4 text-left hover:bg-purple-500/20 transition-all duration-200 flex items-center space-x-4 rounded-xl mb-2 ${
+                      language === lang.code ? 'bg-purple-500/30 text-cyan-300 border border-purple-400/40' : 'text-white border border-transparent'
                     }`}
                     whileHover={{ x: 4 }}
                   >
-                    <span className="text-xl">{lang.flag}</span>
-                    <span className="text-base font-medium">{lang.name}</span>
+                    <span className="text-2xl">{lang.flag}</span>
+                    <span className="text-lg font-medium">{lang.name}</span>
                     {language === lang.code && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="ml-auto w-2 h-2 bg-cyan-400 rounded-full"
+                        className="ml-auto w-2.5 h-2.5 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50"
                       />
                     )}
                   </motion.button>
