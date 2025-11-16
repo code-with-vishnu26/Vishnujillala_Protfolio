@@ -45,17 +45,27 @@ const LanguageSwitcher = () => {
           <>
             {/* Overlay to close dropdown when clicking outside */}
             <div 
-              className="fixed inset-0 z-[99998]"
+              className="fixed inset-0 z-[999998] bg-black/30 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
-              initial={{ opacity: 0, y: -10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-slate-900/98 via-purple-900/95 to-slate-900/98 backdrop-blur-xl rounded-2xl border border-purple-400/30 shadow-2xl overflow-hidden z-[99999] w-[340px] max-h-[500px] overflow-y-auto"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-slate-900/98 via-purple-900/95 to-slate-900/98 backdrop-blur-xl rounded-2xl border border-purple-400/30 shadow-2xl z-[999999] w-[360px] max-w-[90vw]"
+              style={{ maxHeight: 'min(600px, 85vh)' }}
             >
-              <div className="p-4">
+              <div className="flex items-center justify-between px-6 py-4 border-b border-purple-400/20">
+                <h3 className="text-lg font-semibold text-white">Select Language</h3>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="overflow-y-auto p-4" style={{ maxHeight: 'min(500px, 70vh)' }}>
                 {languages.map((lang) => (
                   <motion.button
                     key={lang.code}
