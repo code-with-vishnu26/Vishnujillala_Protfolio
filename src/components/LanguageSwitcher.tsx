@@ -19,17 +19,19 @@ const LanguageSwitcher = () => {
   const currentLanguage = languages.find(lang => lang.code === language);
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-6 py-3 bg-transparent rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-300"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        className="flex items-center justify-between w-full px-6 py-3 bg-transparent rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-300"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
       >
-        <Globe size={16} className="text-gray-300" />
-        <span className="text-sm font-medium text-gray-300">
-          {currentLanguage?.flag} {currentLanguage?.name}
-        </span>
+        <div className="flex items-center space-x-2">
+          <Globe size={16} className="text-gray-300" />
+          <span className="text-sm font-medium text-gray-300">
+            {currentLanguage?.flag} {currentLanguage?.name}
+          </span>
+        </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
@@ -43,17 +45,17 @@ const LanguageSwitcher = () => {
           <>
             {/* Overlay to close dropdown when clicking outside */}
             <div 
-              className="fixed inset-0 z-[9998]"
+              className="fixed inset-0 z-[99998]"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
-              initial={{ opacity: 0, y: 5, scale: 0.95 }}
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 5, scale: 0.95 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute left-0 top-full mt-2 bg-gradient-to-br from-slate-900/98 via-purple-900/95 to-slate-900/98 backdrop-blur-xl rounded-2xl border border-purple-400/30 shadow-2xl overflow-hidden z-[9999] w-[320px] max-h-[420px] overflow-y-auto"
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-slate-900/98 via-purple-900/95 to-slate-900/98 backdrop-blur-xl rounded-2xl border border-purple-400/30 shadow-2xl overflow-hidden z-[99999] w-[340px] max-h-[500px] overflow-y-auto"
             >
-              <div className="p-3">
+              <div className="p-4">
                 {languages.map((lang) => (
                   <motion.button
                     key={lang.code}
