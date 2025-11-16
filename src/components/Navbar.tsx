@@ -160,6 +160,9 @@ const Navbar = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.button>
 
+          {/* Language Switcher */}
+          <LanguageSwitcher />
+
           {/* Profile Button */}
           {userEmail && (
             <DropdownMenu>
@@ -185,13 +188,8 @@ const Navbar = () => {
                   <p className="text-xs text-gray-400 mb-1">Email</p>
                   <p className="text-sm text-cyan-300 font-medium truncate">{userEmail}</p>
                 </div>
-                
-                <div className="px-3 py-3 border-b border-purple-500/20">
-                  <p className="text-xs text-gray-400 mb-2">Language</p>
-                  <LanguageSwitcher />
-                </div>
 
-                <DropdownMenuItem 
+                <DropdownMenuItem
                   onClick={() => navigate("/profiles")}
                   className="text-white hover:text-cyan-300 cursor-pointer hover:bg-purple-500/20 transition-all duration-300"
                 >
