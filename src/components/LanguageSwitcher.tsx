@@ -19,17 +19,17 @@ const LanguageSwitcher = () => {
   const currentLanguage = languages.find(lang => lang.code === language);
 
   return (
-    <div className="relative w-full">
+    <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full px-6 py-3 bg-transparent rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-300"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        className="flex items-center justify-between px-6 py-3 bg-transparent text-white rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-300"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
         <div className="flex items-center space-x-2">
           <Globe size={16} className="text-gray-300" />
           <span className="text-sm font-medium text-gray-300">
-            {currentLanguage?.flag} {currentLanguage?.name}
+            {currentLanguage?.flag}
           </span>
         </div>
         <motion.div
