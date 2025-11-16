@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, ChevronDown } from 'lucide-react';
 import { useLanguage, Language } from '@/contexts/LanguageContext';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 const languages = [
   { code: 'en' as Language, name: 'English', flag: '🇺🇸' },
@@ -52,35 +51,33 @@ const LanguageSwitcher = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-slate-800/95 via-purple-800/90 to-slate-800/95 backdrop-blur-xl rounded-xl border border-purple-500/30 shadow-2xl z-[9999] w-[320px]"
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-slate-800/95 via-purple-800/90 to-slate-800/95 backdrop-blur-xl rounded-xl border border-purple-500/30 shadow-2xl overflow-hidden z-[9999] w-[280px] max-h-[400px] overflow-y-auto"
             >
-              <ScrollArea className="h-[480px]">
-                <div className="p-3">
-                  {languages.map((lang) => (
-                    <motion.button
-                      key={lang.code}
-                      onClick={() => {
-                        setLanguage(lang.code);
-                        setIsOpen(false);
-                      }}
-                      className={`w-full px-4 py-4 text-left hover:bg-purple-500/20 transition-all duration-200 flex items-center space-x-3 rounded-lg mb-2 ${
-                        language === lang.code ? 'bg-purple-500/30 text-cyan-300' : 'text-white'
-                      }`}
-                      whileHover={{ x: 4 }}
-                    >
-                      <span className="text-2xl">{lang.flag}</span>
-                      <span className="text-lg font-medium">{lang.name}</span>
-                      {language === lang.code && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="ml-auto w-2.5 h-2.5 bg-cyan-400 rounded-full"
-                        />
-                      )}
-                    </motion.button>
-                  ))}
-                </div>
-              </ScrollArea>
+              <div className="p-2">
+                {languages.map((lang) => (
+                  <motion.button
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code);
+                      setIsOpen(false);
+                    }}
+                    className={`w-full px-4 py-3 text-left hover:bg-purple-500/20 transition-all duration-200 flex items-center space-x-3 rounded-lg ${
+                      language === lang.code ? 'bg-purple-500/30 text-cyan-300' : 'text-white'
+                    }`}
+                    whileHover={{ x: 4 }}
+                  >
+                    <span className="text-xl">{lang.flag}</span>
+                    <span className="text-base font-medium">{lang.name}</span>
+                    {language === lang.code && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="ml-auto w-2 h-2 bg-cyan-400 rounded-full"
+                      />
+                    )}
+                  </motion.button>
+                ))}
+              </div>
             </motion.div>
           </>
         )}
