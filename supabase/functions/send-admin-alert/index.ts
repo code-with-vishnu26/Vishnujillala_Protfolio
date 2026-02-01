@@ -1,6 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -21,8 +20,7 @@ serve(async (req) => {
       attemptCount, 
       ipAddress, 
       userAgent,
-      timestamp,
-      userId
+      timestamp 
     } = await req.json();
 
     if (!email || !profileName || !attemptCount) {
@@ -30,28 +28,6 @@ serve(async (req) => {
         JSON.stringify({ error: "Missing required fields" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
-    }
-
-    // Create Supabase client with service role for secure database operations
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
-    // Insert failed attempt record using service role (bypasses RLS securely on server-side)
-    const { error: insertError } = await supabase
-      .from("failed_pin_attempts")
-      .insert({
-        user_id: userId || null,
-        email: email,
-        profile_name: profileName,
-        ip_address: ipAddress || null,
-        user_agent: userAgent || null,
-        attempt_count: attemptCount,
-      });
-
-    if (insertError) {
-      console.error("Error inserting failed attempt:", insertError);
-      // Continue to send alert even if insert fails
     }
 
     // Parse location from IP (simplified - you can use a geolocation API for more accuracy)
@@ -126,7 +102,7 @@ serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ success: true, message: "Alert sent and attempt logged successfully" }),
+      JSON.stringify({ success: true, message: "Alert sent successfully" }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {

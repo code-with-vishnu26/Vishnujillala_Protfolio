@@ -103,9 +103,27 @@ const Profiles = () => {
         const newAttemptCount = failedAttempts + 1;
         setFailedAttempts(newAttemptCount);
 
-        // Send admin alert after 3 failed attempts (which also logs the attempt server-side)
+        // Track failed attempt
+        if (userId) {
+          const { error: insertError } = await supabase
+            .from("failed_pin_attempts")
+            .insert({
+              user_id: userId,
+              email: userEmail,
+              profile_name: selectedProfile,
+              ip_address: await getUserIp(),
+              user_agent: navigator.userAgent,
+              attempt_count: newAttemptCount,
+            });
+
+          if (insertError) {
+            console.error("Error tracking failed attempt:", insertError);
+          }
+        }
+
+        // Send admin alert after 3 failed attempts
         if (newAttemptCount >= 3) {
-          await sendAdminAlert(newAttemptCount, userId);
+          await sendAdminAlert(newAttemptCount);
           toast.error("Too many failed attempts. Admin has been notified.");
         }
 
@@ -128,11 +146,10 @@ const Profiles = () => {
     }
   };
 
-  const sendAdminAlert = async (attemptCount: number, userId: string | undefined) => {
+  const sendAdminAlert = async (attemptCount: number) => {
     try {
       const ipAddress = await getUserIp();
       
-      // All data logging is now handled server-side for security
       await supabase.functions.invoke("send-admin-alert", {
         body: {
           email: userEmail,
@@ -141,7 +158,6 @@ const Profiles = () => {
           ipAddress,
           userAgent: navigator.userAgent,
           timestamp: new Date().toISOString(),
-          userId: userId || null,
         },
       });
     } catch (error) {
