@@ -48,10 +48,20 @@ serve(async (req) => {
     }
 
     // Send OTP via email
-    const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (!resendApiKey) {
+      console.error("RESEND_API_KEY is not configured");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    const resendFrom = Deno.env.get("RESEND_FROM") || "Security <onboarding@resend.dev>";
+    const resend = new Resend(resendApiKey);
     
-    const { error: emailError } = await resend.emails.send({
-      from: "Security <onboarding@resend.dev>",
+    const { data: emailData, error: emailError } = await resend.emails.send({
+      from: resendFrom,
       to: [email],
       subject: "Your Verification Code",
       html: `
@@ -69,8 +79,14 @@ serve(async (req) => {
 
     if (emailError) {
       console.error("Email error:", emailError);
+      
+      // Provide clearer error message for Resend domain validation issues
+      const errorMessage = emailError.message?.includes("only send testing emails") 
+        ? "Email sending restricted: Please verify a custom domain at resend.com/domains or send to your registered Resend email only."
+        : "Failed to send OTP email";
+      
       return new Response(
-        JSON.stringify({ error: "Failed to send OTP email" }),
+        JSON.stringify({ error: errorMessage }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
