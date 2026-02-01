@@ -3,8 +3,6 @@ import { ChevronDown } from "lucide-react";
 import FloatingCube from "./FloatingCube";
 import RotatingText3D from "./RotatingText3D";
 import { useLanguage } from "@/contexts/LanguageContext";
-import professionalPortrait from "@/assets/professional-portrait.jpg";
-
 const Hero = () => {
   const { t } = useLanguage();
   
@@ -101,13 +99,9 @@ const Hero = () => {
           delay: 0.3
         }} className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-96 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-2xl blur-3xl absolute inset-0"></div>
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/25 ring-2 ring-white/10">
-                <img 
-                  src={professionalPortrait} 
-                  alt="Vishnu Jillala - Professional Portrait" 
-                  className="w-80 h-96 object-cover object-top"
-                />
+              <div className="w-96 h-80 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl blur-3xl absolute inset-0"></div>
+              <div className="w-80 h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl relative z-10 flex items-center justify-center text-8xl font-bold text-white shadow-2xl my-0 px-0 py-0 mx-[81px]">
+                VJ
               </div>
             </div>
           </motion.div>
