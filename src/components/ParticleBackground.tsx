@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 
 const ParticleBackground = () => {
@@ -14,76 +13,62 @@ const ParticleBackground = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const stars: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-      opacity: number;
-      twinkle: number;
-    }> = [];
-
-    for (let i = 0; i < 300; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 3 + 0.5,
-        opacity: Math.random() * 0.8 + 0.2,
-        twinkle: Math.random() * Math.PI * 2,
-      });
-    }
+    let time = 0;
 
     const animate = () => {
       // Set canvas background to pure black
       ctx.fillStyle = '#000000';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw multiple layered pink waves
+      const waveCount = 5;
       
-      stars.forEach((star) => {
-        // Move stars
-        star.x += star.vx;
-        star.y += star.vy;
-
-        // Wrap around screen edges
-        if (star.x < 0) star.x = canvas.width;
-        if (star.x > canvas.width) star.x = 0;
-        if (star.y < 0) star.y = canvas.height;
-        if (star.y > canvas.height) star.y = 0;
-
-        // Update twinkle effect
-        star.twinkle += 0.02;
-        const twinkleOpacity = (Math.sin(star.twinkle) + 1) * 0.5;
-        const finalOpacity = star.opacity * twinkleOpacity;
-
-        // Draw star with gradient for glow effect
-        const gradient = ctx.createRadialGradient(
-          star.x, star.y, 0,
-          star.x, star.y, star.size * 3
-        );
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${finalOpacity})`);
-        gradient.addColorStop(0.5, `rgba(200, 220, 255, ${finalOpacity * 0.5})`);
-        gradient.addColorStop(1, `rgba(100, 150, 255, 0)`);
-
+      for (let w = 0; w < waveCount; w++) {
+        const baseY = canvas.height * 0.6 + (w * 40);
+        const amplitude = 15 + (w * 8);
+        const frequency = 0.003 - (w * 0.0003);
+        const speed = 0.015 + (w * 0.005);
+        const alpha = 0.15 - (w * 0.02);
+        
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.moveTo(0, canvas.height);
+        
+        for (let x = 0; x <= canvas.width; x += 2) {
+          const y = baseY + 
+            Math.sin(x * frequency + time * speed) * amplitude +
+            Math.sin(x * frequency * 2 + time * speed * 1.5) * (amplitude * 0.5) +
+            Math.sin(x * frequency * 0.5 + time * speed * 0.7) * (amplitude * 0.3);
+          
+          ctx.lineTo(x, y);
+        }
+        
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.closePath();
+        
+        // Create gradient for each wave
+        const gradient = ctx.createLinearGradient(0, baseY - amplitude, 0, canvas.height);
+        gradient.addColorStop(0, `rgba(236, 72, 153, ${alpha})`); // pink-500
+        gradient.addColorStop(0.3, `rgba(219, 39, 119, ${alpha * 0.8})`); // pink-600
+        gradient.addColorStop(0.6, `rgba(190, 24, 93, ${alpha * 0.5})`); // pink-700
+        gradient.addColorStop(1, `rgba(131, 24, 67, ${alpha * 0.2})`); // pink-900
+        
         ctx.fillStyle = gradient;
         ctx.fill();
+      }
 
-        // Add star points for larger stars
-        if (star.size > 2) {
-          ctx.strokeStyle = `rgba(255, 255, 255, ${finalOpacity * 0.8})`;
-          ctx.lineWidth = 0.5;
-          ctx.beginPath();
-          ctx.moveTo(star.x - star.size * 2, star.y);
-          ctx.lineTo(star.x + star.size * 2, star.y);
-          ctx.moveTo(star.x, star.y - star.size * 2);
-          ctx.lineTo(star.x, star.y + star.size * 2);
-          ctx.stroke();
-        }
-      });
+      // Add subtle glow effect at the top of waves
+      const glowGradient = ctx.createRadialGradient(
+        canvas.width * 0.5, canvas.height * 0.55, 0,
+        canvas.width * 0.5, canvas.height * 0.55, canvas.width * 0.6
+      );
+      glowGradient.addColorStop(0, 'rgba(236, 72, 153, 0.08)');
+      glowGradient.addColorStop(0.5, 'rgba(219, 39, 119, 0.03)');
+      glowGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      
+      ctx.fillStyle = glowGradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+      time += 1;
       requestAnimationFrame(animate);
     };
 
