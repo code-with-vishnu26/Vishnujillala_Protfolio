@@ -45,27 +45,17 @@ const LanguageSwitcher = () => {
           <>
             {/* Overlay to close dropdown when clicking outside */}
             <div 
-              className="fixed inset-0 z-[999998] bg-black/30 backdrop-blur-sm"
+              className="fixed inset-0 z-[99]"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-slate-900/98 via-purple-900/95 to-slate-900/98 backdrop-blur-xl rounded-xl border border-purple-400/30 shadow-2xl z-[999999] w-[280px] max-w-[85vw]"
-              style={{ maxHeight: 'min(400px, 75vh)' }}
+              className="absolute right-0 top-full mt-2 bg-slate-900/95 backdrop-blur-xl rounded-xl border border-white/20 shadow-2xl z-[100] w-[200px]"
             >
-              <div className="flex items-center justify-between px-4 py-3 border-b border-purple-400/20">
-                <h3 className="text-base font-semibold text-white">Select Language</h3>
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
-                >
-                  ✕
-                </button>
-              </div>
-              <div className="overflow-y-auto p-3" style={{ maxHeight: 'min(320px, 60vh)' }}>
+              <div className="p-2">
                 {languages.map((lang) => (
                   <motion.button
                     key={lang.code}
@@ -73,8 +63,8 @@ const LanguageSwitcher = () => {
                       setLanguage(lang.code);
                       setIsOpen(false);
                     }}
-                    className={`w-full px-3 py-2.5 text-left hover:bg-purple-500/20 transition-all duration-200 flex items-center space-x-3 rounded-lg mb-1 ${
-                      language === lang.code ? 'bg-purple-500/30 text-cyan-300 border border-purple-400/40' : 'text-white border border-transparent'
+                    className={`w-full px-3 py-2 text-left hover:bg-white/10 transition-all duration-200 flex items-center space-x-3 rounded-lg ${
+                      language === lang.code ? 'bg-white/20 text-cyan-300' : 'text-white'
                     }`}
                     whileHover={{ x: 3 }}
                   >
@@ -84,7 +74,7 @@ const LanguageSwitcher = () => {
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="ml-auto w-2 h-2 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50"
+                        className="ml-auto w-2 h-2 bg-cyan-400 rounded-full"
                       />
                     )}
                   </motion.button>
