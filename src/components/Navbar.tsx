@@ -97,8 +97,8 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled 
-          ? "bg-gradient-to-r from-sky-900/95 via-sky-800/90 to-sky-900/95 backdrop-blur-xl shadow-2xl shadow-sky-500/30 border-b border-sky-500/20" 
-          : "bg-gradient-to-r from-sky-900/60 via-sky-700/40 to-sky-900/60 backdrop-blur-sm"
+          ? "bg-transparent backdrop-blur-sm" 
+          : "bg-transparent"
       }`}
     >
       <div className="flex justify-between items-center px-4 py-4">
