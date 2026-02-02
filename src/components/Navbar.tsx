@@ -125,7 +125,7 @@ const Navbar = () => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className={`${
               isOpen ? "flex" : "hidden"
-            } flex-row gap-3 bg-gradient-to-r from-slate-800/90 via-purple-800/80 to-slate-800/90 px-6 py-3 rounded-2xl backdrop-blur-xl border border-purple-500/30 shadow-2xl shadow-purple-500/20`}
+            } flex-row gap-3 bg-transparent px-6 py-3 rounded-2xl backdrop-blur-sm`}
           >
             {menuItems.map((item, index) => (
               <motion.button
