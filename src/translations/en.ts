@@ -18,7 +18,7 @@ export default {
       duration: "2022 – 2026",
       description: "Pursuing Bachelor of Technology in Computer Science Engineering with focus on core computer science concepts, algorithms, and modern software development practices.",
       highlights: [
-        "Current CGPA: 6.9/10",
+        "Current CGPA: 7.5/10",
         "Specialization in Full Stack Development", 
         "Active participant in coding competitions",
         "Member of Computer Science Society"

@@ -18,7 +18,7 @@ export default {
       duration: "2022 – 2026",
       description: "Poursuite d'un Baccalauréat en Technologie en Ingénierie Informatique avec un focus sur les concepts informatiques de base, les algorithmes et les pratiques modernes de développement logiciel.",
       highlights: [
-        "CGPA actuel : 6.9/10",
+        "CGPA actuel : 7.5/10",
         "Spécialisation en Développement Full Stack",
         "Participant actif aux compétitions de programmation",
         "Membre de la Société d'Informatique"

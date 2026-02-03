@@ -18,7 +18,7 @@ export default {
       duration: "2022 – 2026",
       description: "Cursando Licenciatura en Tecnología en Ingeniería de Ciencias de la Computación con enfoque en conceptos básicos de informática, algoritmos y prácticas modernas de desarrollo de software.",
       highlights: [
-        "CGPA actual: 6.9/10",
+        "CGPA actual: 7.5/10",
         "Especialización en Desarrollo Full Stack",
         "Participante activo en competencias de programación",
         "Miembro de la Sociedad de Ciencias de la Computación"
