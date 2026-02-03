@@ -109,7 +109,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="relative z-10 text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Portfolio</span>
+          <span className="relative z-10 text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent uppercase">Portfolio</span>
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300" />
         </motion.button>
 
@@ -134,7 +134,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}
                 onClick={() => handleNavClick(item.value)}
-                className="px-4 py-2 text-sm font-medium text-white hover:text-cyan-300 rounded-xl transition-all duration-300 hover:bg-purple-500/20 border border-transparent hover:border-purple-400/50 relative group"
+                className="px-4 py-2 text-sm font-medium text-white hover:text-cyan-300 rounded-xl transition-all duration-300 hover:bg-purple-500/20 border border-transparent hover:border-purple-400/50 relative group uppercase"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -153,7 +153,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="relative z-10 flex items-center gap-2">
+            <span className="relative z-10 flex items-center gap-2 uppercase">
               Menu
               <div className={`w-4 h-0.5 bg-white transition-all duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}></div>
             </span>
