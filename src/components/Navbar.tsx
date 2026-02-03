@@ -104,13 +104,12 @@ const Navbar = () => {
       <div className="flex justify-between items-center px-4 py-4">
         {/* Logo / Brand */}
         <motion.button 
-          className="px-6 py-3 text-white ml-8 cursor-pointer relative group bg-transparent rounded-2xl border border-transparent hover:border-white/30 transition-all duration-300"
+          className="px-6 py-3 text-white ml-8 cursor-pointer relative group bg-transparent rounded-2xl border border-transparent transition-all duration-300"
           onClick={() => window.location.reload()}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <span className="relative z-10 text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent uppercase">Portfolio</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300" />
         </motion.button>
 
         {/* Menu Items show when Menu is clicked - now inline */}
@@ -149,7 +148,7 @@ const Navbar = () => {
           {/* Menu Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="px-6 py-3 bg-transparent text-white font-semibold rounded-2xl hover:bg-white/10 transition-all duration-300 border border-white/30 hover:border-white/50 relative group overflow-hidden"
+            className="px-6 py-3 bg-transparent text-white font-semibold rounded-2xl transition-all duration-300 border border-white/30"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -157,7 +156,6 @@ const Navbar = () => {
               Menu
               <div className={`w-4 h-0.5 bg-white transition-all duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}></div>
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.button>
 
           {/* Language Switcher */}
