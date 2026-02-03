@@ -57,22 +57,22 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 relative z-10">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 relative z-10">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             {t('projects.title')}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -84,7 +84,7 @@ const Projects = () => {
               className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 group"
             >
               {project.image && (
-                <div className="h-48 overflow-hidden">
+                <div className="h-36 sm:h-40 md:h-48 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
@@ -93,23 +93,25 @@ const Projects = () => {
                 </div>
               )}
               
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                  <span className="text-xs text-blue-400 bg-blue-400/20 px-2 py-1 rounded-full">
+              <div className="p-4 sm:p-5 md:p-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-white leading-tight">
+                    {project.title}
+                  </h3>
+                  <span className="self-start px-2 py-1 text-xs text-blue-400 bg-blue-400/20 rounded-full whitespace-nowrap">
                     {project.date}
                   </span>
                 </div>
                 
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium"
+                      className="px-2 sm:px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium"
                     >
                       {tech}
                     </span>
@@ -126,7 +128,7 @@ const Projects = () => {
                       className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
                     >
                       <Github size={16} />
-                      <span className="text-sm">{ t('projects.codeLabel')}</span>
+                      <span className="text-xs sm:text-sm">{t('projects.codeLabel')}</span>
                     </motion.a>
                   )}
                 </div>
