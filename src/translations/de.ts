@@ -18,7 +18,7 @@ export default {
       duration: "2022 – 2026",
       description: "Verfolge Bachelor of Technology in Computer Science Engineering mit Fokus auf Kernkonzepte der Informatik, Algorithmen und moderne Softwareentwicklungspraktiken.",
       highlights: [
-        "Aktueller CGPA: 6.9/10",
+        "Aktueller CGPA: 7.5/10",
         "Spezialisierung in Full Stack Entwicklung",
         "Aktiver Teilnehmer an Programmierwettbewerben",
         "Mitglied der Informatik-Gesellschaft"
