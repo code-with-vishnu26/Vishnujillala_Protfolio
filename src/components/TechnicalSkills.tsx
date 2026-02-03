@@ -43,7 +43,7 @@ const TechnicalSkills = () => {
   };
 
   const CircularProgress = ({ skill, index }: { skill: any; index: number }) => {
-    const radius = 45;
+    const radius = 40;
     const circumference = 2 * Math.PI * radius;
     const strokeDasharray = circumference;
     const strokeDashoffset = circumference - (skill.level / 100) * circumference;
@@ -54,17 +54,17 @@ const TechnicalSkills = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         viewport={{ once: true }}
-        className="flex flex-col items-center space-y-3"
+        className="flex flex-col items-center space-y-2 sm:space-y-3"
       >
-        <div className="relative w-24 h-24">
-          <svg className="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
+        <div className="relative w-20 h-20 sm:w-24 sm:h-24">
+          <svg className="w-20 h-20 sm:w-24 sm:h-24 transform -rotate-90" viewBox="0 0 100 100">
             {/* Background circle */}
             <circle
               cx="50"
               cy="50"
               r={radius}
               stroke="rgb(55, 65, 81)"
-              strokeWidth="8"
+              strokeWidth="6"
               fill="transparent"
               className="opacity-20"
             />
@@ -74,7 +74,7 @@ const TechnicalSkills = () => {
               cy="50"
               r={radius}
               stroke={skill.color}
-              strokeWidth="8"
+              strokeWidth="6"
               fill="transparent"
               strokeDasharray={strokeDasharray}
               strokeDashoffset={strokeDashoffset}
@@ -96,13 +96,13 @@ const TechnicalSkills = () => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.2 + 0.5 }}
               viewport={{ once: true }}
-              className="text-lg font-bold text-white"
+              className="text-base sm:text-lg font-bold text-white"
             >
               {skill.level}%
             </motion.span>
           </div>
         </div>
-        <span className="text-sm font-medium text-gray-300 text-center">
+        <span className="text-xs sm:text-sm font-medium text-gray-300 text-center">
           {skill.name}
         </span>
       </motion.div>
@@ -110,19 +110,19 @@ const TechnicalSkills = () => {
   };
 
   return (
-    <section className="py-20 relative z-10">
+    <section className="py-12 sm:py-16 md:py-20 relative z-10">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             Technical Skills
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Category Buttons */}
@@ -131,7 +131,7 @@ const TechnicalSkills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12"
         >
           {categories.map((category) => (
             <motion.button
@@ -139,7 +139,7 @@ const TechnicalSkills = () => {
               onClick={() => setActiveCategory(category)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
                 activeCategory === category
                   ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25"
                   : "bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/10"
@@ -156,7 +156,7 @@ const TechnicalSkills = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8 justify-items-center max-w-4xl mx-auto"
         >
           {skillsData[activeCategory as keyof typeof skillsData].map((skill, index) => (
             <CircularProgress key={skill.name} skill={skill} index={index} />

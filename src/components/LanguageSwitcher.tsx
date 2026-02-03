@@ -22,12 +22,12 @@ const LanguageSwitcher = () => {
     <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between px-6 py-3 bg-transparent text-white rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-300"
+        className="flex items-center justify-between px-3 sm:px-6 py-2 sm:py-3 bg-transparent text-white rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-300 gap-1 sm:gap-2"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <div className="flex items-center space-x-2">
-          <Globe size={16} className="text-gray-300" />
+        <div className="flex items-center space-x-1 sm:space-x-2">
+          <Globe size={14} className="text-gray-300 sm:w-4 sm:h-4" />
           <span className="text-sm font-medium text-gray-300">
             {currentLanguage?.flag}
           </span>
@@ -36,14 +36,13 @@ const LanguageSwitcher = () => {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <ChevronDown size={14} className="text-gray-300" />
+          <ChevronDown size={12} className="text-gray-300 sm:w-[14px] sm:h-[14px]" />
         </motion.div>
       </motion.button>
 
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Overlay to close dropdown when clicking outside */}
             <div 
               className="fixed inset-0 z-[99]"
               onClick={() => setIsOpen(false)}
@@ -53,7 +52,7 @@ const LanguageSwitcher = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute right-0 top-full mt-2 bg-slate-900/95 backdrop-blur-xl rounded-xl border border-white/20 shadow-2xl z-[100] w-[200px]"
+              className="absolute right-0 top-full mt-2 bg-slate-900/95 backdrop-blur-xl rounded-xl border border-white/20 shadow-2xl z-[100] w-[160px] sm:w-[200px]"
             >
               <div className="p-2">
                 {languages.map((lang) => (
@@ -68,8 +67,8 @@ const LanguageSwitcher = () => {
                     }`}
                     whileHover={{ x: 3 }}
                   >
-                    <span className="text-lg">{lang.flag}</span>
-                    <span className="text-sm font-medium">{lang.name}</span>
+                    <span className="text-base sm:text-lg">{lang.flag}</span>
+                    <span className="text-xs sm:text-sm font-medium">{lang.name}</span>
                     {language === lang.code && (
                       <motion.div
                         initial={{ scale: 0 }}
