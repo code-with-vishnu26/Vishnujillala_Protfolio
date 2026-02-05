@@ -32,7 +32,7 @@ const Hero = () => {
             </motion.h2>
             
             <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight"
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.8, type: "spring" }}
@@ -40,17 +40,18 @@ const Hero = () => {
               {t('hero.name')}
             </motion.h1>
             
+            {/* Rotating text positioned directly below name */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex justify-center lg:justify-start"
+              className="flex justify-center lg:justify-start mt-2"
             >
               <RotatingText3D />
             </motion.div>
             
             <motion.p 
-              className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed mt-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
@@ -59,20 +60,20 @@ const Hero = () => {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 md:mt-8 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-6 md:mt-8 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
             >
               <a 
                 href="#professional-journey" 
-                className="px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base text-center text-white"
+                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm md:text-base text-center text-white whitespace-nowrap"
               >
                 {t('hero.viewWork')}
               </a>
               <a 
                 href="#contact" 
-                className="px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 text-white text-sm sm:text-base text-center"
+                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 text-white text-xs sm:text-sm md:text-base text-center whitespace-nowrap"
               >
                 {t('hero.contactMe')}
               </a>
@@ -80,7 +81,7 @@ const Hero = () => {
                 href="https://drive.google.com/uc?export=download&id=1LnZTFVzXaXV0IF8h0rPkJU_Rol5bRrrf" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="px-6 sm:px-8 py-3 border border-gray-400 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 text-sm sm:text-base text-center text-white"
+                className="px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 border border-gray-400 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 text-xs sm:text-sm md:text-base text-center text-white whitespace-nowrap"
               >
                 {t('hero.downloadResume')}
               </a>
@@ -92,11 +93,11 @@ const Hero = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center order-1 lg:order-2"
+            className="flex justify-center order-1 lg:order-2 mb-6 lg:mb-0"
           >
             <div className="relative">
-              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-80 lg:w-80 lg:h-96 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl blur-3xl absolute inset-0"></div>
-              <div className="w-40 h-48 sm:w-56 sm:h-64 md:w-64 md:h-80 lg:w-80 lg:h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl relative z-10 flex items-center justify-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white shadow-2xl">
+              <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-64 lg:w-72 lg:h-80 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-2xl blur-3xl absolute inset-0"></div>
+              <div className="w-28 h-32 sm:w-44 sm:h-48 md:w-52 md:h-64 lg:w-72 lg:h-80 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl relative z-10 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white shadow-2xl">
                 VJ
               </div>
             </div>
