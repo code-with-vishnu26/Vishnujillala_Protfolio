@@ -19,15 +19,28 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [userEmail, setUserEmail] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setScrolled(currentScrollY > 50);
+      
+      // Hide navbar on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -86,8 +99,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+    <motion.nav
+      initial={{ y: 0 }}
+      animate={{ y: visible ? 0 : -100 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-transparent backdrop-blur-sm" : "bg-transparent"
       }`}
     >
@@ -106,46 +122,20 @@ const Navbar = () => {
 
         {/* Desktop Menu Items */}
         <div className="hidden lg:flex items-center gap-4">
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, x: 20, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="flex flex-row gap-3 bg-transparent px-6 py-3 rounded-2xl backdrop-blur-sm"
+          {/* Desktop Menu Items - Always visible */}
+          <div className="flex flex-row gap-2">
+            {menuItems.map((item, index) => (
+              <motion.button
+                key={item.key}
+                onClick={() => handleNavClick(item.value)}
+                className="px-4 py-2 text-sm font-medium text-white hover:text-cyan-300 rounded-xl transition-all duration-300 hover:bg-purple-500/20 border border-transparent hover:border-purple-400/50 uppercase"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {menuItems.map((item, index) => (
-                  <motion.button
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
-                    onClick={() => handleNavClick(item.value)}
-                    className="px-4 py-2 text-sm font-medium text-white hover:text-cyan-300 rounded-xl transition-all duration-300 hover:bg-purple-500/20 border border-transparent hover:border-purple-400/50 relative group uppercase"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="relative z-10">{t(item.key)}</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 via-purple-400/10 to-pink-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.button>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Desktop Menu Button */}
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            className="px-6 py-3 bg-transparent text-white font-semibold rounded-2xl transition-all duration-300 border border-white/30"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10 flex items-center gap-2 uppercase">
-              Menu
-              <div className={`w-4 h-0.5 bg-white transition-all duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}></div>
-            </span>
-          </motion.button>
+                {t(item.key)}
+              </motion.button>
+            ))}
+          </div>
 
           {/* Language Switcher */}
           <LanguageSwitcher />
@@ -232,7 +222,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
-        {isOpen && (
+        {isOpen && window.innerWidth < 1024 && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -244,7 +234,7 @@ const Navbar = () => {
               <div className="flex flex-col gap-2">
                 {menuItems.map((item, index) => (
                   <motion.button
-                    key={index}
+                    key={item.key}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
@@ -259,7 +249,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 
