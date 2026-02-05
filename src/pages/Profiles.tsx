@@ -174,17 +174,17 @@ const Profiles = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+    <div className="min-h-screen bg-black flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-6xl">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold text-center text-white mb-16"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-8 sm:mb-12 md:mb-16"
         >
           Who's Watching?
         </motion.h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto px-2 sm:px-0">
           {profiles.map((profile, index) => {
             const Icon = profile.icon;
             return (
@@ -196,16 +196,16 @@ const Profiles = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleProfileClick(profile.id)}
-                className="group relative"
+                className="group relative min-h-[120px] sm:min-h-[160px] md:min-h-[180px]"
               >
                 <div
-                  className={`w-full aspect-square rounded-2xl bg-gradient-to-br ${profile.gradient} p-1 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-purple-500/50`}
+                  className={`w-full aspect-square rounded-xl sm:rounded-2xl bg-gradient-to-br ${profile.gradient} p-0.5 sm:p-1 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-purple-500/50`}
                 >
-                  <div className="w-full h-full bg-black/40 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                    <Icon className="w-20 h-20 text-white" />
+                  <div className="w-full h-full bg-black/40 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center">
+                    <Icon className="w-10 h-10 sm:w-16 sm:h-16 md:w-20 md:h-20 text-white" />
                   </div>
                 </div>
-                <p className="text-white text-xl font-semibold mt-4 text-center group-hover:text-purple-400 transition-colors">
+                <p className="text-white text-sm sm:text-lg md:text-xl font-semibold mt-2 sm:mt-4 text-center group-hover:text-purple-400 transition-colors">
                   {profile.name}
                 </p>
               </motion.button>
@@ -217,14 +217,14 @@ const Profiles = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-16"
+          className="text-center mt-10 sm:mt-12 md:mt-16"
         >
           <button
             onClick={async () => {
               await supabase.auth.signOut();
               navigate("/auth");
             }}
-            className="text-white/60 hover:text-white transition-colors border border-white/20 px-6 py-2 rounded-full hover:border-white/40"
+            className="text-white/60 hover:text-white transition-colors border border-white/20 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full hover:border-white/40 text-sm sm:text-base min-h-[44px]"
           >
             Sign Out
           </button>
