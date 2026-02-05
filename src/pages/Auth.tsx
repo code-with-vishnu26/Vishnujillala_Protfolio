@@ -147,20 +147,20 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-black flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-black flex items-center justify-center p-4 sm:p-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
+        <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-8 shadow-2xl">
           {!showOtpInput ? (
             <>
-              <h1 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h1 className="text-2xl sm:text-4xl font-bold text-center mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 {isLogin ? "Welcome Back" : "Create Account"}
               </h1>
-              <p className="text-center text-white/60 mb-8">
+              <p className="text-center text-white/60 mb-6 sm:mb-8 text-sm sm:text-base">
                 {isLogin
                   ? "Sign in to continue to your profiles"
                   : "Sign up to get started"}
@@ -206,7 +206,7 @@ const Auth = () => {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:opacity-90 text-white font-semibold"
+                  className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:opacity-90 text-white font-semibold py-2.5 sm:py-3 text-sm sm:text-base min-h-[44px]"
                 >
                   {loading ? "Please wait..." : isLogin ? "Sign In" : "Sign Up"}
                 </Button>
@@ -224,18 +224,18 @@ const Auth = () => {
               <Button
                 onClick={handleGoogleAuth}
                 variant="outline"
-                className="w-full bg-white/5 border-white/10 text-white hover:bg-white/10"
+                className="w-full bg-white/5 border-white/10 text-white hover:bg-white/10 py-2.5 sm:py-3 text-sm sm:text-base min-h-[44px]"
               >
-                <Chrome className="w-5 h-5 mr-2" />
+                <Chrome className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Google
               </Button>
 
-              <p className="text-center text-white/60 mt-6">
+              <p className="text-center text-white/60 mt-6 text-sm sm:text-base">
                 {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
                 <button
                   type="button"
                   onClick={() => setIsLogin(!isLogin)}
-                  className="text-purple-400 hover:text-purple-300 font-semibold"
+                  className="text-purple-400 hover:text-purple-300 font-semibold min-h-[44px] px-1"
                 >
                   {isLogin ? "Sign Up" : "Sign In"}
                 </button>
@@ -243,14 +243,14 @@ const Auth = () => {
             </>
           ) : (
             <>
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full mb-4">
-                  <Shield className="w-8 h-8 text-white" />
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full mb-4">
+                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h1 className="text-2xl sm:text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Verify Your Identity
                 </h1>
-                <p className="text-white/60">
+                <p className="text-white/60 text-sm sm:text-base">
                   Enter the 6-digit code sent to<br />
                   <span className="text-white font-medium">{email}</span>
                 </p>
@@ -273,7 +273,7 @@ const Auth = () => {
                 <Button
                   type="submit"
                   disabled={loading || otp.length !== 6}
-                  className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:opacity-90 text-white font-semibold"
+                  className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 hover:opacity-90 text-white font-semibold py-2.5 sm:py-3 text-sm sm:text-base min-h-[44px]"
                 >
                   {loading ? "Verifying..." : "Verify & Continue"}
                 </Button>
@@ -286,7 +286,7 @@ const Auth = () => {
                     setOtp("");
                     setPendingUserId(null);
                   }}
-                  className="w-full text-white/60 hover:text-white hover:bg-white/5"
+                  className="w-full text-white/60 hover:text-white hover:bg-white/5 py-2.5 sm:py-3 text-sm sm:text-base min-h-[44px]"
                 >
                   Back to login
                 </Button>
