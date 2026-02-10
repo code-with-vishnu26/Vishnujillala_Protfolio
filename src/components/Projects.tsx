@@ -7,6 +7,11 @@ import fullstackTemplateImage from "@/assets/fullstack-template.jpg";
 import vulnerabilityScannerImage from "@/assets/vulnerability-scanner.jpg";
 import crmWorkflowImage from "@/assets/crm-workflow.jpg";
 import weatherNowImage from "@/assets/weather-now.jpg";
+import earthlensImage from "@/assets/earthlens-vision.jpg";
+import djangoEcommerceImage from "@/assets/django-ecommerce.jpg";
+import fullstackNextjsImage from "@/assets/fullstack-nextjs.jpg";
+import fullStackAppImage from "@/assets/full-stack-app.jpg";
+import fullstackFastapiImage from "@/assets/fullstack-fastapi.jpg";
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -63,6 +68,51 @@ const Projects = () => {
       github: "https://github.com/code-with-vishnu26/Weather-Now",
       date: "2024",
       image: weatherNowImage
+    },
+    {
+      id: 7,
+      title: "EarthLens Vision",
+      description: "Satellite imagery analysis platform for environmental monitoring. Provides terrain mapping, climate data visualization, and geospatial analytics.",
+      tech: ["Python", "Computer Vision", "GIS"],
+      github: "https://github.com/code-with-vishnu26/earthlens-vision",
+      date: "2024",
+      image: earthlensImage
+    },
+    {
+      id: 8,
+      title: "Django E-Commerce",
+      description: "Full-featured e-commerce platform built with Django. Includes product catalog, shopping cart, payment integration, and order management.",
+      tech: ["Django", "Python", "PostgreSQL"],
+      github: "https://github.com/code-with-vishnu26/django-ecommerce",
+      date: "2024",
+      image: djangoEcommerceImage
+    },
+    {
+      id: 9,
+      title: "Fullstack Next.js App",
+      description: "Production-ready Next.js application with SSR, API routes, authentication, and database integration. Features modern dashboard UI.",
+      tech: ["Next.js", "TypeScript", "Prisma"],
+      github: "https://github.com/code-with-vishnu26/fullstack-nextjs-app",
+      date: "2024",
+      image: fullstackNextjsImage
+    },
+    {
+      id: 10,
+      title: "Full Stack Application",
+      description: "Comprehensive full-stack web application with React frontend, Node.js backend, and MongoDB database. Features REST API and user authentication.",
+      tech: ["React", "Node.js", "MongoDB"],
+      github: "https://github.com/code-with-vishnu26/full-stack-application",
+      date: "2024",
+      image: fullStackAppImage
+    },
+    {
+      id: 11,
+      title: "Full-Stack FastAPI",
+      description: "High-performance backend application built with FastAPI. Features async endpoints, auto-generated docs, JWT auth, and database ORM integration.",
+      tech: ["FastAPI", "Python", "SQLAlchemy"],
+      github: "https://github.com/code-with-vishnu26/Full-Stack-FastAPI",
+      date: "2024",
+      image: fullstackFastapiImage
     }
   ];
 
