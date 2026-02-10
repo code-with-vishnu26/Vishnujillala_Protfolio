@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, ChevronDown, ChevronUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import aiCyberSecurityImage from "@/assets/ai-cyber-security.jpg";
 import blockchainPasswordImage from "@/assets/blockchain-password.jpg";
@@ -15,6 +16,7 @@ import fullstackFastapiImage from "@/assets/fullstack-fastapi.jpg";
 
 const Projects = () => {
   const { t } = useLanguage();
+  const [showAll, setShowAll] = useState(false);
   const projects = [
     {
       id: 1,
@@ -133,7 +135,7 @@ const Projects = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          {projects.map((project, index) => (
+          {projects.slice(0, 3).map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
@@ -196,6 +198,98 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        <AnimatePresence>
+          {showAll && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-4 sm:mt-6 md:mt-8 overflow-hidden"
+            >
+              {projects.slice(3).map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 30 }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                  whileHover={{ y: -10 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 group"
+                >
+                  {project.image && (
+                    <div className="h-36 sm:h-40 md:h-48 overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  )}
+                  
+                  <div className="p-4 sm:p-5 md:p-6">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-white leading-tight">
+                        {project.title}
+                      </h3>
+                      <span className="self-start px-2 py-1 text-xs text-blue-400 bg-blue-400/20 rounded-full whitespace-nowrap">
+                        {project.date}
+                      </span>
+                    </div>
+                    
+                    <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 sm:px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div className="flex space-x-4">
+                      {project.github && (
+                        <motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.1 }}
+                          className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
+                        >
+                          <Github size={16} />
+                          <span className="text-xs sm:text-sm">{t('projects.codeLabel')}</span>
+                        </motion.a>
+                      )}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <motion.div
+          className="flex justify-center mt-8 sm:mt-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <motion.button
+            onClick={() => setShowAll(!showAll)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 px-6 py-3 min-h-[44px] bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-medium text-sm sm:text-base transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+          >
+            {showAll ? "Show Less" : "View All Projects"}
+            {showAll ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );
