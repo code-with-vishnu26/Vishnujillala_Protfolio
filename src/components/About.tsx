@@ -126,7 +126,27 @@ const About = () => {
           )}
 
           {selectedCard === 'location' && (
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-4">
+              <div className="relative rounded-xl overflow-hidden h-48 sm:h-64 cursor-pointer group"
+                onClick={() => window.open('https://maps.app.goo.gl/85FyFsF49cXPXiR4A', '_blank')}
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60736.82448507439!2d78.0638!3d18.6725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8e4b0b0b0b0b%3A0x1234567890abcdef!2sNizamabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000"
+                  className="w-full h-full border-0 pointer-events-none"
+                  loading="lazy"
+                  title="Location Map"
+                  style={{ filter: 'invert(0.9) hue-rotate(180deg) brightness(0.8) contrast(1.1)' }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="flex flex-col items-center -mt-4">
+                    <MapPin className="text-red-500 drop-shadow-lg" size={40} fill="currentColor" />
+                    <div className="w-2 h-2 bg-red-500/40 rounded-full mt-[-4px] animate-ping" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100">
+                  <span className="text-white text-sm bg-black/60 px-3 py-1 rounded-full">Open in Google Maps</span>
+                </div>
+              </div>
               <h4 className="text-lg sm:text-xl font-semibold text-white">{(card.content as any).current}</h4>
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{(card.content as any).description}</p>
               <div className="space-y-2">
@@ -140,6 +160,13 @@ const About = () => {
                   ))}
                 </ul>
               </div>
+              <button
+                onClick={() => window.open('https://maps.app.goo.gl/85FyFsF49cXPXiR4A', '_blank')}
+                className="w-full mt-2 py-2.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+              >
+                <MapPin size={16} />
+                View on Google Maps
+              </button>
             </div>
           )}
 
@@ -243,16 +270,35 @@ const About = () => {
 
               {/* Location Card */}
               <motion.div 
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10 cursor-pointer hover:bg-white/10 transition-all duration-300"
+                className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 cursor-pointer hover:bg-white/10 transition-all duration-300 overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedCard('location')}
               >
-                <div className="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
-                  <MapPin className="text-purple-400" size={20} />
-                  <h3 className="text-lg sm:text-xl font-semibold">Location</h3>
+                <div className="relative h-36 sm:h-44 w-full bg-[#1a1a2e] overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60736.82448507439!2d78.0638!3d18.6725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8e4b0b0b0b0b%3A0x1234567890abcdef!2sNizamabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000"
+                    className="w-full h-full border-0 pointer-events-none"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Location Map"
+                    style={{ filter: 'invert(0.9) hue-rotate(180deg) brightness(0.8) contrast(1.1)' }}
+                  />
+                  {/* Red marker overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="flex flex-col items-center -mt-4">
+                      <MapPin className="text-red-500 drop-shadow-lg" size={32} fill="currentColor" />
+                      <div className="w-2 h-2 bg-red-500/40 rounded-full mt-[-4px] animate-ping" />
+                    </div>
+                  </div>
                 </div>
-                <p className="text-sm sm:text-base text-gray-300">Nizamabad, Telangana, India</p>
+                <div className="p-4 sm:p-5">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <MapPin className="text-red-500" size={18} />
+                    <h3 className="text-lg sm:text-xl font-semibold">Nizamabad, Telangana</h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-400">Click to view on Google Maps</p>
+                </div>
               </motion.div>
 
               {/* Achievement Card */}
