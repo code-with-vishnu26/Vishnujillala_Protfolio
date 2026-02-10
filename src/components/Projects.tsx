@@ -6,6 +6,7 @@ import blockchainPasswordImage from "@/assets/blockchain-password.jpg";
 import fullstackTemplateImage from "@/assets/fullstack-template.jpg";
 import vulnerabilityScannerImage from "@/assets/vulnerability-scanner.jpg";
 import crmWorkflowImage from "@/assets/crm-workflow.jpg";
+import weatherNowImage from "@/assets/weather-now.jpg";
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -53,6 +54,15 @@ const Projects = () => {
       tech: ["React.js", "Python", "React Flow"],
       date: "2024",
       image: crmWorkflowImage
+    },
+    {
+      id: 6,
+      title: "Weather Now",
+      description: "Real-time weather application providing current conditions, forecasts, and city-based search. Features clean UI with temperature, humidity, and wind data.",
+      tech: ["HTML", "CSS", "JavaScript", "Weather API"],
+      github: "https://github.com/code-with-vishnu26/Weather-Now",
+      date: "2024",
+      image: weatherNowImage
     }
   ];
 
