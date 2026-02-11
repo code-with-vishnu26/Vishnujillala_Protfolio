@@ -81,7 +81,7 @@ export default {
     description: "Obtén una visión completa de mis habilidades, experiencia y calificaciones",
     download: "Descargar PDF",
     preview: "Vista Previa En Línea",
-    lastUpdated: "Última actualización: Enero 2024"
+    lastUpdated: "Última actualización: Enero 2026"
   },
   contact: {
     title: "Conectémonos",

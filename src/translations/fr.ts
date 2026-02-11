@@ -81,7 +81,7 @@ export default {
     description: "Obtenez un aperçu complet de mes compétences, expérience et qualifications",
     download: "Télécharger PDF",
     preview: "Aperçu En Ligne",
-    lastUpdated: "Dernière mise à jour : Janvier 2024"
+    lastUpdated: "Dernière mise à jour : Janvier 2026"
   },
   contact: {
     title: "Connectons-nous",
