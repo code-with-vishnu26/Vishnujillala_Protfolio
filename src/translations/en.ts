@@ -81,7 +81,7 @@ export default {
     description: "Get a comprehensive overview of my skills, experience, and qualifications",
     download: "Download PDF",
     preview: "Preview Online",
-    lastUpdated: "Last updated: January 2024"
+    lastUpdated: "Last updated: January 2026"
   },
   contact: {
     title: "Let's Connect",

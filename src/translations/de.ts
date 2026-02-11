@@ -81,7 +81,7 @@ export default {
     description: "Erhalten Sie einen umfassenden Überblick über meine Fähigkeiten, Erfahrungen und Qualifikationen",
     download: "PDF Herunterladen",
     preview: "Online Vorschau",
-    lastUpdated: "Zuletzt aktualisiert: Januar 2024"
+    lastUpdated: "Zuletzt aktualisiert: Januar 2026"
   },
   contact: {
     title: "Lass uns Verbinden",

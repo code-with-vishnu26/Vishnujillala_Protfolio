@@ -81,7 +81,7 @@ export default {
     description: "मेरे कौशल, अनुभव और योग्यताओं का व्यापक विवरण प्राप्त करें",
     download: "PDF डाउनलोड करें",
     preview: "ऑनलाइन पूर्वावलोकन",
-    lastUpdated: "अंतिम अपडेट: जनवरी 2024"
+    lastUpdated: "अंतिम अपडेट: जनवरी 2026"
   },
   contact: {
     title: "आइए जुड़ें",
